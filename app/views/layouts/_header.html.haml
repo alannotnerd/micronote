@@ -1,0 +1,20 @@
+%header.navbar.navbar-fixed-top.navbar-inverse
+  .container
+    =link_to "MicroHard", root_path, id:"logo"
+    %nav
+      %ul.nav.navbar-nav.navbar-right
+        %li=link_to "Home", :root
+        %li=link_to "Help", :help
+        -if logged_in?
+          %li=link_to 'Users', '#'
+          %li.dropdown
+            %a.dropdown-toggle{href: "#", "data-toggle"=> "dropdown"}
+              Accout
+              %b.caret
+            %ul.dropdown-menu
+              %li=link_to "Profile", current_user
+              %li=link_to "Settings", '#'
+              %li.divider
+                %li=link_to "Log out", logout_path, method: "delete"
+        -else
+          %li=link_to "Log in", :login
