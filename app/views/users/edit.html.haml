@@ -1,0 +1,24 @@
+- provide :title, "Account Setting"
+%h1
+  Account Setting
+
+.row
+  .col-md-6.col-md-offset-3
+    = form_for @user do |f|
+      =render 'shared/error_messages'
+      =f.label :name
+      =f.text_field :name, class: "form_control"
+      =f.label :email
+      =f.email_field :email, class: "form_control"
+      =f.label :password, "new password"
+      =f.password_field :new_password, class: "form_control"
+      =f.label :passsword_confirmation, "Confirmation"
+      =f.password_field :password_confirmation, class: "form_control"
+      
+      =f.submit "Save Changes", class:"btn btn-primary" 
+    .gravatar_edit
+      = gravatar_for @user
+      %a{href: "http://gravatar.com/emails", target: "_blank"}
+        Change
+
+
