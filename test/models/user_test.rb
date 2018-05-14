@@ -52,4 +52,14 @@ class UserTest < ActiveSupport::TestCase
     @user.password = @user.password_confirmation = "a" * 5
     assert_not @user.valid?
   end
+
+  test "authenticated? should return false for a user with nil digest" do
+    assert_not @user.authenticated? :remember, ""
+  end
+
+  test "authenticated? should return true" do
+    @user.remember
+    @user.save
+    assert @user.authenticated? :remember, @user.remember_token
+  end
 end

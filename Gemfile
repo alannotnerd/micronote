@@ -11,6 +11,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 gem 'haml'
+gem 'haml-rails'
 
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'

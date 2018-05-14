@@ -5,504 +5,707 @@ Man:
   email: YuMan@example.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
   admin: true
+  activated: true
+  activated_at: Sun, 13 May 2018 14:14:56 UTC +00:00
 
 test:
   name: test
   email: test@example.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:14:56 UTC +00:00
 
-user_1:
-  name: user_1
-  email: user_1@microhard.com
+
+test_1:
+  name: test_1
+  email: test_1@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_2:
-  name: user_2
-  email: user_2@microhard.com
+test_2:
+  name: test_2
+  email: test_2@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_3:
-  name: user_3
-  email: user_3@microhard.com
+test_3:
+  name: test_3
+  email: test_3@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_4:
-  name: user_4
-  email: user_4@microhard.com
+test_4:
+  name: test_4
+  email: test_4@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_5:
-  name: user_5
-  email: user_5@microhard.com
+test_5:
+  name: test_5
+  email: test_5@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_6:
-  name: user_6
-  email: user_6@microhard.com
+test_6:
+  name: test_6
+  email: test_6@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_7:
-  name: user_7
-  email: user_7@microhard.com
+test_7:
+  name: test_7
+  email: test_7@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_8:
-  name: user_8
-  email: user_8@microhard.com
+test_8:
+  name: test_8
+  email: test_8@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_9:
-  name: user_9
-  email: user_9@microhard.com
+test_9:
+  name: test_9
+  email: test_9@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_10:
-  name: user_10
-  email: user_10@microhard.com
+test_10:
+  name: test_10
+  email: test_10@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_11:
-  name: user_11
-  email: user_11@microhard.com
+test_11:
+  name: test_11
+  email: test_11@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_12:
-  name: user_12
-  email: user_12@microhard.com
+test_12:
+  name: test_12
+  email: test_12@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_13:
-  name: user_13
-  email: user_13@microhard.com
+test_13:
+  name: test_13
+  email: test_13@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_14:
-  name: user_14
-  email: user_14@microhard.com
+test_14:
+  name: test_14
+  email: test_14@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_15:
-  name: user_15
-  email: user_15@microhard.com
+test_15:
+  name: test_15
+  email: test_15@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_16:
-  name: user_16
-  email: user_16@microhard.com
+test_16:
+  name: test_16
+  email: test_16@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_17:
-  name: user_17
-  email: user_17@microhard.com
+test_17:
+  name: test_17
+  email: test_17@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_18:
-  name: user_18
-  email: user_18@microhard.com
+test_18:
+  name: test_18
+  email: test_18@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_19:
-  name: user_19
-  email: user_19@microhard.com
+test_19:
+  name: test_19
+  email: test_19@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_20:
-  name: user_20
-  email: user_20@microhard.com
+test_20:
+  name: test_20
+  email: test_20@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_21:
-  name: user_21
-  email: user_21@microhard.com
+test_21:
+  name: test_21
+  email: test_21@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_22:
-  name: user_22
-  email: user_22@microhard.com
+test_22:
+  name: test_22
+  email: test_22@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_23:
-  name: user_23
-  email: user_23@microhard.com
+test_23:
+  name: test_23
+  email: test_23@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_24:
-  name: user_24
-  email: user_24@microhard.com
+test_24:
+  name: test_24
+  email: test_24@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_25:
-  name: user_25
-  email: user_25@microhard.com
+test_25:
+  name: test_25
+  email: test_25@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_26:
-  name: user_26
-  email: user_26@microhard.com
+test_26:
+  name: test_26
+  email: test_26@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_27:
-  name: user_27
-  email: user_27@microhard.com
+test_27:
+  name: test_27
+  email: test_27@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_28:
-  name: user_28
-  email: user_28@microhard.com
+test_28:
+  name: test_28
+  email: test_28@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_29:
-  name: user_29
-  email: user_29@microhard.com
+test_29:
+  name: test_29
+  email: test_29@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_30:
-  name: user_30
-  email: user_30@microhard.com
+test_30:
+  name: test_30
+  email: test_30@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_31:
-  name: user_31
-  email: user_31@microhard.com
+test_31:
+  name: test_31
+  email: test_31@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_32:
-  name: user_32
-  email: user_32@microhard.com
+test_32:
+  name: test_32
+  email: test_32@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_33:
-  name: user_33
-  email: user_33@microhard.com
+test_33:
+  name: test_33
+  email: test_33@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_34:
-  name: user_34
-  email: user_34@microhard.com
+test_34:
+  name: test_34
+  email: test_34@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_35:
-  name: user_35
-  email: user_35@microhard.com
+test_35:
+  name: test_35
+  email: test_35@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_36:
-  name: user_36
-  email: user_36@microhard.com
+test_36:
+  name: test_36
+  email: test_36@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_37:
-  name: user_37
-  email: user_37@microhard.com
+test_37:
+  name: test_37
+  email: test_37@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_38:
-  name: user_38
-  email: user_38@microhard.com
+test_38:
+  name: test_38
+  email: test_38@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_39:
-  name: user_39
-  email: user_39@microhard.com
+test_39:
+  name: test_39
+  email: test_39@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_40:
-  name: user_40
-  email: user_40@microhard.com
+test_40:
+  name: test_40
+  email: test_40@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_41:
-  name: user_41
-  email: user_41@microhard.com
+test_41:
+  name: test_41
+  email: test_41@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_42:
-  name: user_42
-  email: user_42@microhard.com
+test_42:
+  name: test_42
+  email: test_42@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_43:
-  name: user_43
-  email: user_43@microhard.com
+test_43:
+  name: test_43
+  email: test_43@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_44:
-  name: user_44
-  email: user_44@microhard.com
+test_44:
+  name: test_44
+  email: test_44@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_45:
-  name: user_45
-  email: user_45@microhard.com
+test_45:
+  name: test_45
+  email: test_45@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_46:
-  name: user_46
-  email: user_46@microhard.com
+test_46:
+  name: test_46
+  email: test_46@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_47:
-  name: user_47
-  email: user_47@microhard.com
+test_47:
+  name: test_47
+  email: test_47@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_48:
-  name: user_48
-  email: user_48@microhard.com
+test_48:
+  name: test_48
+  email: test_48@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_49:
-  name: user_49
-  email: user_49@microhard.com
+test_49:
+  name: test_49
+  email: test_49@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_50:
-  name: user_50
-  email: user_50@microhard.com
+test_50:
+  name: test_50
+  email: test_50@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_51:
-  name: user_51
-  email: user_51@microhard.com
+test_51:
+  name: test_51
+  email: test_51@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_52:
-  name: user_52
-  email: user_52@microhard.com
+test_52:
+  name: test_52
+  email: test_52@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_53:
-  name: user_53
-  email: user_53@microhard.com
+test_53:
+  name: test_53
+  email: test_53@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_54:
-  name: user_54
-  email: user_54@microhard.com
+test_54:
+  name: test_54
+  email: test_54@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_55:
-  name: user_55
-  email: user_55@microhard.com
+test_55:
+  name: test_55
+  email: test_55@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_56:
-  name: user_56
-  email: user_56@microhard.com
+test_56:
+  name: test_56
+  email: test_56@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_57:
-  name: user_57
-  email: user_57@microhard.com
+test_57:
+  name: test_57
+  email: test_57@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_58:
-  name: user_58
-  email: user_58@microhard.com
+test_58:
+  name: test_58
+  email: test_58@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_59:
-  name: user_59
-  email: user_59@microhard.com
+test_59:
+  name: test_59
+  email: test_59@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_60:
-  name: user_60
-  email: user_60@microhard.com
+test_60:
+  name: test_60
+  email: test_60@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_61:
-  name: user_61
-  email: user_61@microhard.com
+test_61:
+  name: test_61
+  email: test_61@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_62:
-  name: user_62
-  email: user_62@microhard.com
+test_62:
+  name: test_62
+  email: test_62@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_63:
-  name: user_63
-  email: user_63@microhard.com
+test_63:
+  name: test_63
+  email: test_63@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_64:
-  name: user_64
-  email: user_64@microhard.com
+test_64:
+  name: test_64
+  email: test_64@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_65:
-  name: user_65
-  email: user_65@microhard.com
+test_65:
+  name: test_65
+  email: test_65@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_66:
-  name: user_66
-  email: user_66@microhard.com
+test_66:
+  name: test_66
+  email: test_66@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_67:
-  name: user_67
-  email: user_67@microhard.com
+test_67:
+  name: test_67
+  email: test_67@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_68:
-  name: user_68
-  email: user_68@microhard.com
+test_68:
+  name: test_68
+  email: test_68@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_69:
-  name: user_69
-  email: user_69@microhard.com
+test_69:
+  name: test_69
+  email: test_69@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_70:
-  name: user_70
-  email: user_70@microhard.com
+test_70:
+  name: test_70
+  email: test_70@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_71:
-  name: user_71
-  email: user_71@microhard.com
+test_71:
+  name: test_71
+  email: test_71@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_72:
-  name: user_72
-  email: user_72@microhard.com
+test_72:
+  name: test_72
+  email: test_72@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_73:
-  name: user_73
-  email: user_73@microhard.com
+test_73:
+  name: test_73
+  email: test_73@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_74:
-  name: user_74
-  email: user_74@microhard.com
+test_74:
+  name: test_74
+  email: test_74@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_75:
-  name: user_75
-  email: user_75@microhard.com
+test_75:
+  name: test_75
+  email: test_75@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_76:
-  name: user_76
-  email: user_76@microhard.com
+test_76:
+  name: test_76
+  email: test_76@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_77:
-  name: user_77
-  email: user_77@microhard.com
+test_77:
+  name: test_77
+  email: test_77@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_78:
-  name: user_78
-  email: user_78@microhard.com
+test_78:
+  name: test_78
+  email: test_78@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_79:
-  name: user_79
-  email: user_79@microhard.com
+test_79:
+  name: test_79
+  email: test_79@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_80:
-  name: user_80
-  email: user_80@microhard.com
+test_80:
+  name: test_80
+  email: test_80@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_81:
-  name: user_81
-  email: user_81@microhard.com
+test_81:
+  name: test_81
+  email: test_81@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_82:
-  name: user_82
-  email: user_82@microhard.com
+test_82:
+  name: test_82
+  email: test_82@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_83:
-  name: user_83
-  email: user_83@microhard.com
+test_83:
+  name: test_83
+  email: test_83@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_84:
-  name: user_84
-  email: user_84@microhard.com
+test_84:
+  name: test_84
+  email: test_84@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_85:
-  name: user_85
-  email: user_85@microhard.com
+test_85:
+  name: test_85
+  email: test_85@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_86:
-  name: user_86
-  email: user_86@microhard.com
+test_86:
+  name: test_86
+  email: test_86@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_87:
-  name: user_87
-  email: user_87@microhard.com
+test_87:
+  name: test_87
+  email: test_87@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_88:
-  name: user_88
-  email: user_88@microhard.com
+test_88:
+  name: test_88
+  email: test_88@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_89:
-  name: user_89
-  email: user_89@microhard.com
+test_89:
+  name: test_89
+  email: test_89@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_90:
-  name: user_90
-  email: user_90@microhard.com
+test_90:
+  name: test_90
+  email: test_90@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_91:
-  name: user_91
-  email: user_91@microhard.com
+test_91:
+  name: test_91
+  email: test_91@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_92:
-  name: user_92
-  email: user_92@microhard.com
+test_92:
+  name: test_92
+  email: test_92@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_93:
-  name: user_93
-  email: user_93@microhard.com
+test_93:
+  name: test_93
+  email: test_93@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_94:
-  name: user_94
-  email: user_94@microhard.com
+test_94:
+  name: test_94
+  email: test_94@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_95:
-  name: user_95
-  email: user_95@microhard.com
+test_95:
+  name: test_95
+  email: test_95@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_96:
-  name: user_96
-  email: user_96@microhard.com
+test_96:
+  name: test_96
+  email: test_96@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_97:
-  name: user_97
-  email: user_97@microhard.com
+test_97:
+  name: test_97
+  email: test_97@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_98:
-  name: user_98
-  email: user_98@microhard.com
+test_98:
+  name: test_98
+  email: test_98@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
-user_99:
-  name: user_99
-  email: user_99@microhard.com
+test_99:
+  name: test_99
+  email: test_99@microhard.com
   password_digest: $2a$04$HYBBIgtEmVulomTEBBWgF.KNphDuzyecu.d3e3bg8/OTkYcWFcQYq
+  activated: true
+  activated_at: Sun, 13 May 2018 14:09:02 UTC +00:00
 
