@@ -1,0 +1,3 @@
+[submodule "notebook"]
+	path = notebook
+	url = git@github.com:jupyter/notebook.git

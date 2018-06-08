@@ -22,11 +22,12 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.where(activated: true).paginate(page: params[:page])
   end
 
   def show
     @user=User.find(params[:id])
+    redirect_to root_url unless @user.activated?
   end
   
   def edit

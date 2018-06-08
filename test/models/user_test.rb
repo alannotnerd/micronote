@@ -62,4 +62,9 @@ class UserTest < ActiveSupport::TestCase
     @user.save
     assert @user.authenticated? :remember, @user.remember_token
   end
+
+  test "create password reset token " do
+    @user.create_reset_digest
+    assert_not @user.reset_digest.nil?
+  end
 end

@@ -1,0 +1,27 @@
+#!/bin/sh
+run(){
+  echo "run app"
+  echo "" > log/development.log
+  jupyter notebook --config config/config.py >> log/development.log 2>&1 &
+  rails s >> log/development.log 2>&1 &
+  echo "done"
+}
+stop() {
+  echo "stop app ..."
+  a=$(lsof -i:3000 | awk '{print $2}' | grep -v '^PID')
+  b=$(lsof -i:8888 | awk '{print $2}' | grep -v '^PID')
+  kill $a
+  kill $b
+  echo "done"
+  return 0
+}
+
+main(){
+  if [ $1 = 'run' ]; then
+    run
+  elif [ $1 = 'stop' ]; then
+    stop
+  fi
+}
+
+main $*

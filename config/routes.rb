@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-
   root 'static_pages#home'
   get 'home' => 'static_pages#home'
   get 'about' => 'static_pages#about'
@@ -9,7 +7,8 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new'
 
   resources :users
-  resources :account_activation, only: [:edit]
+  resources :account_activations, only: [:edit]
+  resources :password_resets, only: [:new, :create, :edit, :update]
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
