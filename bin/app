@@ -21,6 +21,9 @@ main(){
     run
   elif [ $1 = 'stop' ]; then
     stop
+  elif [ $1 = 'dev' ]; then
+    run
+    bundle exec guard >> /dev/null 2>&1 &
   fi
 }
 
