@@ -14,3 +14,12 @@ User.create!(name: "Man Yu", email: "yuman@outlook.com", password: "101209", pas
   password = "qwerasdf"
   User.create!(name: name, email: email, password: password, password_confirmation: password, activated: true, activated_at: Time.zone.now)
 end
+
+Project.create(name: "sample", user_id: User.find_by(email: "yuman@outlook.com").id)
+Project.create(name: "sample1", user_id: User.find_by(email: "yuman@outlook.com").id)
+
+User.all.each do |user|
+  user.create_home
+end
+
+

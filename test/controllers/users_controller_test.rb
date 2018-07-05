@@ -5,6 +5,8 @@ class UsersControllerTest < ActionController::TestCase
   def setup
     @user = users :test
     @user_other = users :Man
+    @user_other.save
+    @user.save
   end
 
 

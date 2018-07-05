@@ -5,7 +5,7 @@ class UserTest < ActiveSupport::TestCase
   #   assert true
   # end
   def setup
-    @user = User.new name: "Example User",email: "user@example.com", password: "foobar", password_confirmation: "foobar"
+    @user = User.new name: "Example User",email: "user@example.com", password: "foobar", password_confirmation: "foobar", id: 10086
   end
 
   test "should be valid" do
@@ -41,6 +41,15 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
+  test "home should present" do
+    assert @user.home_path.nil?
+    @user.save
+    @user.create_home
+    assert_equal @user.home_path, "/data/rails/test/10086"
+    assert Dir.exist?(@user.home_path)
+    
+  end
+
   test "email should be unique" do
     dup_user = @user.dup
     dup_user.email = @user.email.upcase
@@ -66,5 +75,9 @@ class UserTest < ActiveSupport::TestCase
   test "create password reset token " do
     @user.create_reset_digest
     assert_not @user.reset_digest.nil?
+  end
+
+  def teardown
+    FileUtils.rm_rf '/data/rails/test' if Dir.exists?('/data/rails/test')
   end
 end

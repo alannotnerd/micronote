@@ -24,6 +24,8 @@ main(){
   elif [ $1 = 'dev' ]; then
     run
     bundle exec guard >> /dev/null 2>&1 &
+  elif [ $1 = 'log' ]; then
+    tail -f log/development.log
   fi
 }
 
