@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   def show
     @user=User.find(params[:id])
     redirect_to root_url unless @user.activated?
+    @projects = Project.where(user_id: @user.id) unless @user.nil?
   end
   
   def edit

@@ -41,7 +41,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_not is_logged_in?
     get edit_account_activation_path(user.activation_token, email: user.email)
     assert user.reload.activated?
-    assert Dir.exists?(user.home_path)
+    assert Dir.exists?(Datafolder::Env.root_path + user.home_path)
     follow_redirect!
     assert_template 'users/show'
     assert is_logged_in?

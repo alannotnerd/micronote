@@ -2,10 +2,15 @@
 %html
   %head
     %title=full_title(yield(:title))
-    =stylesheet_link_tag 'application', media:'all', 'data-turbolinks-track' => true
-    =javascript_include_tag 'application', 'data-turbolinks-track' => true
-    =csrf_meta_tags
-    =render 'layouts/shim'
+    = stylesheet_link_tag 'application', media:'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag 'https://codemirror.net/lib/codemirror.js'
+    = stylesheet_link_tag 'https://codemirror.net/lib/codemirror.css'
+    = javascript_include_tag 'https://codemirror.net/addon/edit/continuelist.js'
+    = javascript_include_tag 'https://codemirror.net/mode/markdown/markdown.js'
+    = javascript_include_tag 'https://codemirror.net/mode/xml/xml.js'
+    = csrf_meta_tags
+    = render 'layouts/shim'
   %body
     =render 'layouts/header'
     .container

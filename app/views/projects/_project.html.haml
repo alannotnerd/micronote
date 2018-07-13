@@ -1,0 +1,11 @@
+%li.border
+  %p
+    %strong
+      #{User.find(project.user_id).name}/#{project.name}
+  .project_preview
+    %a{href: project_path}
+      %span
+        %strong
+          #{project.name}
+    .preview_container
+      %iframe{src: "#{view_for project}", frameborder: "no", scrolling: "no", height: 150, style: "width:100%;"}

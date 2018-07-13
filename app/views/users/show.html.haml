@@ -1,9 +1,13 @@
 - provide :title, @user.name.capitalize
+-# .div
+-#   .row
+-#     %aside.col-md-4
+-#       %section.user_info
+-#         %h1
+-#           = gravatar_for @user
+-#           = @user.name.capitalize
+%h1
+  #{@user.name}'s Projects
 .div
-  .row
-    %aside.col-md-4
-      %section.user_info
-        %h1
-          = gravatar_for @user
-          = @user.name.capitalize
-
+  %ul.projects
+    = render @projects

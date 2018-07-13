@@ -47,8 +47,8 @@ class User < ActiveRecord::Base
   end
 
   def create_home
-    self.rm_home
-    FileUtils.mkdir_p self.home_path
+    rm_home
+    FileUtils.mkdir_p Datafolder::Env.root_path + "/#{self.id}"
   end
 
   def send_activation_email
@@ -75,8 +75,8 @@ class User < ActiveRecord::Base
     end
 
     def update_home_path
-      if self.home_path.nil?
-        self.home_path = Datafolder::Env.root_path + "/#{self.id}"
+      if self.home_path.nil? || self.home_path != "/#{self.id}"
+        self.home_path = "/#{self.id}"
         update_attribute :home_path, self.home_path
       end
     end
@@ -87,7 +87,8 @@ class User < ActiveRecord::Base
     end
 
     def rm_home
-      FileUtils.rm_rf self.home_path if Dir.exists?(self.home_path)
+      absolute_home_path = Datafolder::Env.root_path + "/#{self.id}"
+      FileUtils.rm_rf absolute_home_path if Dir.exists?(absolute_home_path)
     end
 
 end

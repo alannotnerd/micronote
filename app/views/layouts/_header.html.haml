@@ -9,12 +9,14 @@
           %li=link_to 'Users', :users
           %li.dropdown
             %a.dropdown-toggle{href: "#", "data-toggle"=> "dropdown"}
-              Accout
+              ="#{current_user.name}"
               %b.caret
             %ul.dropdown-menu
               %li=link_to "Profile", current_user
               %li=link_to "Settings", edit_user_path(current_user)
               %li.divider
                 %li=link_to "Log out", logout_path, method: "delete"
+          %li.user_icon
+            = gravatar_for current_user, {size: 30}
         -else
           %li=link_to "Log in", :login

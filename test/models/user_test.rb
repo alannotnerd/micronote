@@ -45,9 +45,8 @@ class UserTest < ActiveSupport::TestCase
     assert @user.home_path.nil?
     @user.save
     @user.create_home
-    assert_equal @user.home_path, "/data/rails/test/10086"
-    assert Dir.exist?(@user.home_path)
-    
+    assert_equal @user.home_path, "/10086"
+    assert Dir.exist?(Datafolder::Env.root_path + "/#{@user.id}")
   end
 
   test "email should be unique" do

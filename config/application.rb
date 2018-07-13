@@ -24,16 +24,8 @@ module Sample
     config.active_record.raise_in_transactional_callbacks = true
     config.app_generators.javascript_engine :coffeescript
     config.assets.enabled = true
-    def get_token
-      return @jupyter_access_cookie unless @jupyter_access_cookie.nil?
-      login_path = "http://localhost:8888/login"
-      response = HTTP.get login_path
-      cookie = response.cookies.cookies[0]
-      payload = { cookie.name => cookie.value, "password" => "railsjupyter" }
-      reponse = HTTP.cookies(cookie.name => cookie.value).post(login_path, :form => payload)
-      cookie = reponse.cookies.cookies[0]
-      @jupyter_access_cookie = { cookie.name => cookie.value }
-      return @jupyter_access_cookie
+    def jupyter_path
+      "http://microhard.com/notebooks"
     end
   end
 end

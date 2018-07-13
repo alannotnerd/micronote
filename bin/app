@@ -8,8 +8,8 @@ run(){
 }
 stop() {
   echo "stop app ..."
-  a=$(lsof -i:3000 | awk '{print $2}' | grep -v '^PID')
-  b=$(lsof -i:8888 | awk '{print $2}' | grep -v '^PID')
+  a=$(lsof -i:3000 | awk '{print $2}' | grep -v '^PID'|head -n 1)
+  b=$(lsof -i:8888 | awk '{print $2}' | grep -v '^PID'|head -n 1)
   kill $a
   kill $b
   echo "done"
