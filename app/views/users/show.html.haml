@@ -8,6 +8,12 @@
 -#           = @user.name.capitalize
 %h1
   #{@user.name}'s Projects
+.row.center
+  .form-inline
+    %input.form-control#form_id{type: "hidden", value: @user.id}
+    %input.form-control#form_name{placeholder: "name", style: "margin-bottom: 0px;"}
+    %button.btn.btn-primary#create{onclick: "showNameField();"}
+      + Create New
 .div
   %ul.projects
     = render @projects

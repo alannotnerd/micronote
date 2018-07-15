@@ -3,6 +3,7 @@ require 'test_helper'
 class UsersControllerTest < ActionController::TestCase
   
   def setup
+    Datafolder::Env.init
     @user = users :test
     @user_other = users :Man
     @user_other.save
@@ -61,6 +62,7 @@ class UsersControllerTest < ActionController::TestCase
         assert_select 'a[href=?]', user_path(user), text: 'delete', method: :delete
       end
     end
+    @user.create_home
     assert_difference 'User.count', -1 do
       delete :destroy, id: @user
     end
@@ -70,5 +72,9 @@ class UsersControllerTest < ActionController::TestCase
     log_in_as(@user)
     get :index
     assert_select 'a', text: 'delete', count: 0, method: :delete
+  end
+
+  def teardown
+    Datafolder::Env.drop
   end
 end
