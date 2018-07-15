@@ -6,15 +6,13 @@ class Project < ActiveRecord::Base
   def create_home
     user = User.find self.user_id 
     home = user.home_path
-    sample = JSON.parse('{"type":"notebook","content":{"cells":[{"metadata":{},"cell_type":"markdown","source":"# Sample\nThis is sample markdown cell"}],"metadata":{"kernelspec":{"name":"python3","display_name":"Python 3","language":"python"},"language_info":{"name":"python","version":"3.6.5","mimetype":"text/x-python","codemirror_mode":{"name":"ipython","version":3},"pygments_lexer":"ipython3","nbconvert_exporter":"python","file_extension":".py"}},"nbformat":4,"nbformat_minor":2}}')
     @absolute_path = "#{home}/#{self.id}"
-    res = Project.api "post", "contents", home, type: "directory"
-    Project.api "patch", "contents", res["path_without_env"], {path: replace_last(res["path"], self.id)}
-    res = Project.api "post", "contents", @absolute_path, type: "notebook"
-    res = Project.api "patch", "contents", res["path_without_env"], path: replace_last(res["path"], "index.ipynb")
-    res = Project.api "put", "contents", res["path_without_env"], sample
-    res = Project.api "post", "contents", @absolute_path, type: "directory"
-    res = Project.api "patch", "contents", res["path_without_env"], path: replace_last(res["path"], "asset")
+
+    # todo: user new api
+
+    Datafolder::Env.createDir(self.id.to_s, user.id.to_s)
+    Datafolder::Env.createNote "/#{user.id}/#{self.id}"
+    Datafolder::Env.createDir "asset", "#{user.id}/#{self.id}"
   end
 
   def rm_home

@@ -47,8 +47,8 @@ class User < ActiveRecord::Base
   end
 
   def create_home
-    rm_home
-    FileUtils.mkdir_p Datafolder::Env.root_path + "/#{self.id}"
+    rm_home if Datafolder::Env.exist? self.id.to_s
+    Datafolder::Env.createDir self.id.to_s, "/"
   end
 
   def send_activation_email
@@ -69,6 +69,13 @@ class User < ActiveRecord::Base
   def send_password_reset_email
     UserMailer.password_reset(self).deliver_now
   end
+
+  def rm_home
+    # absolute_home_path = Datafolder::Env.root_path + "/#{self.id}"
+    # FileUtils.rm_rf absolute_home_path if Dir.exists?(absolute_home_path)
+    Datafolder::Env.del_r self.id.to_s
+  end
+
   private
     def downcase_email
       self.email = email.downcase
@@ -85,10 +92,4 @@ class User < ActiveRecord::Base
       self.activation_token = User.new_token
       self.activation_digest = User.digest(activation_token)
     end
-
-    def rm_home
-      absolute_home_path = Datafolder::Env.root_path + "/#{self.id}"
-      FileUtils.rm_rf absolute_home_path if Dir.exists?(absolute_home_path)
-    end
-
 end

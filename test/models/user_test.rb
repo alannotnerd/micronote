@@ -6,6 +6,7 @@ class UserTest < ActiveSupport::TestCase
   # end
   def setup
     @user = User.new name: "Example User",email: "user@example.com", password: "foobar", password_confirmation: "foobar", id: 10086
+    Datafolder::Env.init
   end
 
   test "should be valid" do
@@ -46,7 +47,7 @@ class UserTest < ActiveSupport::TestCase
     @user.save
     @user.create_home
     assert_equal @user.home_path, "/10086"
-    assert Dir.exist?(Datafolder::Env.root_path + "/#{@user.id}")
+    assert Datafolder::Env.exist? @user.id.to_s
   end
 
   test "email should be unique" do
@@ -77,6 +78,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   def teardown
-    FileUtils.rm_rf '/data/rails/test' if Dir.exists?('/data/rails/test')
+    # FileUtils.rm_rf '/data/rails/test' if Dir.exists?('/data/rails/test')
+    Datafolder::Env.drop
   end
 end
