@@ -25,7 +25,7 @@ module Sample
     config.app_generators.javascript_engine :coffeescript
     config.assets.enabled = true
     def jupyter_path
-      "http://microhard.com/notebooks"
+      "http://gitlab.whu.edu.cn/notebooks"
     end
   end
 end

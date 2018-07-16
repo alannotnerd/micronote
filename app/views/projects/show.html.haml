@@ -3,5 +3,5 @@
   %a.btn.btn-primary{href: edit_project_path(@project)}
     Edit
 %div
-  %iframe.full{ src: "#{view_for @project}", frameborder: "no", scrolling: "no"}
+  %iframe.full{ src: "#{view_for @project}", frameborder: "no", scrolling: "no",onload: "autoResize(this)"}
   -# %iframe{src: "http://www.baidu.com"}
