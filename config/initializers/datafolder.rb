@@ -41,6 +41,35 @@ module Datafolder
       end
     end
 
+    def Env.mv_r(ori, dst)
+      src=JSON.parse RestClient.get(URI.encode("#{Rails.application.jupyter_path}/api/contents/#{Rails.env}/#{ori}")).body
+      Env.mv ori, dst
+      if src["type"] == "directory"
+        subdir = src["content"]
+        subdir.each do |content|
+          subpath = content["path"].split("/").map {|i| i.to_s}
+          subpath.shift
+          subpath = subpath.join "/"
+          Env.mv_r subpath, dst+"/"+src["name"]
+        end
+      end
+    end
+
+    def Env.mv(ori, dst)
+      raise "origin path cannot be empty" if ori.empty?
+      src=JSON.parse RestClient.get(URI.encode("#{Rails.application.jupyter_path}/api/contents/#{Rails.env}/#{ori}")).body
+      RestClient.put(
+        URI.encode("#{Rails.application.jupyter_path}/api/contents/#{Rails.env}/#{dst}/#{src['name']}"),
+        {
+          name: src["name"],
+          path: "#{dst}/#{src["name"]}",
+          type: src["type"],
+          format: src["format"],
+          content: src["content"]
+        }.to_json
+      )
+    end
+
     def Env.exist?(path)
       begin
         if path.empty?
@@ -101,5 +130,3 @@ module Datafolder
       end 
   end
 end
-
-Datafolder::Env.init

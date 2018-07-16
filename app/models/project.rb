@@ -36,9 +36,11 @@ class Project < ActiveRecord::Base
     return res
   end
 
-  def Project.mk_request(method,request)
-    response = HTTP.send(method,request)
-    return response
+  def Project.import p_id, u_id
+    _project = Project.find(p_id);
+    newprj = Project.create name:_project.name, user_id:u_id
+    Datafolder::Env.mv_r "#{_project.user_id}/#{p_id}/asset", "#{u_id}/#{newprj.id}"
+    Datafolder::Env.mv_r "#{_project.user_id}/#{p_id}/index.ipynb", "#{u_id}/#{newprj.id}"
   end
 
   def nbpath
