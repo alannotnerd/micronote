@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
     @project = Project.new
   end
   def show
+    puts session[:user_id]
     @project = Project.find(params[:id])
   end
 
