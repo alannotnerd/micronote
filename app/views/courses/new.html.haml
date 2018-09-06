@@ -1,0 +1,17 @@
+-provide :title, "Create Course"
+.container
+  .row
+    .col-md-3
+      
+    .col-md-9
+      =form_tag(courses_path, class: "form-inline", style: "overflow: hidden") do
+        .h2#basic#title
+          Basic
+        .form-group
+          %label#project_name.m-label
+            Project Name
+          %input.form-control#ajax-p-name{name: "project_name"}
+          =hidden_field_tag "group_id", @group.id
+          =hidden_field_tag "user_id", current_user.id
+        .row{style:"text-align: center; border-top:1px solid #e3e3e3; margin-top:20px;"}
+          %button.btn.btn-default{class: "btn btn-primary", action: courses_path}Create

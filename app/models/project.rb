@@ -1,6 +1,7 @@
 class Project < ActiveRecord::Base
   belongs_to :user
   after_create :create_home
+  after_destroy :rm_home
   validates :user_id, presence: true
 
   def create_home
@@ -16,9 +17,10 @@ class Project < ActiveRecord::Base
   end
 
   def rm_home
-    user = User.find self.user_id
-    home = user.home_path
-    Project.api "delete", "contents", home+self.name
+    # user = User.find self.user_id
+    # home = user.home_path
+    # Project.api "delete", "contents", home+self.name
+    Datafolder::Env.del_r self.home
   end
 
   def Project.api(method, type, path="", payload={})
@@ -36,9 +38,13 @@ class Project < ActiveRecord::Base
     return res
   end
 
-  def Project.import p_id, u_id
-    _project = Project.find(p_id);
-    newprj = Project.create name:_project.name, user_id:u_id
+  def Project.import p_id, u_id, c_id
+    _project = Project.find(p_id)
+    if c_id.nil?
+      newprj = Project.create name:_project.name, user_id:u_id
+    else
+      newprj = Project.create name:_project.name, user_id:u_id, pushed_by: c_id
+    end
     Datafolder::Env.mv_r "#{_project.user_id}/#{p_id}/asset", "#{u_id}/#{newprj.id}"
     Datafolder::Env.mv_r "#{_project.user_id}/#{p_id}/index.ipynb", "#{u_id}/#{newprj.id}"
   end
@@ -55,5 +61,11 @@ class Project < ActiveRecord::Base
       temp[temp.length-1] = name
       temp.join("/")
     end 
+
+    def home
+      user = User.find self.user_id
+      home = user.home_path
+      return "#{Rails.env}#{home}/#{self.id}"
+    end
 
 end

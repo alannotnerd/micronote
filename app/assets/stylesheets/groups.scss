@@ -1,0 +1,93 @@
+// Place all the styles related to the groups controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.groups{
+  // white-space: nowrap
+  list-style: none;
+  li{
+    // display: inline-block;
+    display: inline-block;
+    overflow: hidden;
+    margin-top: 10px;
+    // float: left;
+    white-space: nowrap;
+    .panel{
+      display: inline-block;
+    }
+  }
+}
+
+#toolbar{
+  overflow: hidden;
+}
+
+#toolbar-container{
+  width: 100%;
+  padding: 5px 0;
+  // margin-bottom: 1px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.panel{
+  position: relative;
+  a{
+    display: block;
+    z-index: 50;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    overflow: hidden;
+  }
+}
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 5px 0;
+    border-bottom: 1px solid #777 
+  }
+}
+
+.form-group {
+  input{
+    margin: 10px 0;
+  }
+}
+
+.mainTab-container{
+  display: flex;
+}
+
+#mainTab{
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+#invitation_pene{
+  form{
+    text-align: center;
+  }
+}
+
+#join{
+  z-index: 50;
+  top: -10;
+  display: inline-block;
+  form{
+    border-bottom: 1px solid #e5e5e5;
+  }
+  // padding-right: 0; 
+}
+
+#create-course{
+  text-align: center;
+  a{
+    margin: 10px 0;
+  }
+}

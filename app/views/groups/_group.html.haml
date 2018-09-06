@@ -1,0 +1,11 @@
+%li
+  .panel.panel-primary
+    %a{href: group_path(group)}
+    .panel-heading
+      %strong
+        #{group.owner.name}
+    .panel-body
+      #{group.name}
+    .panel-footing{style: "float: right; margin-right: 5px;"}
+      %span.glyphicon.glyphicon-user
+        #{group.all.size}

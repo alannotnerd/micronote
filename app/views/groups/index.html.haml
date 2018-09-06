@@ -1,0 +1,37 @@
+.container
+  .container#toolbar-container
+    %ul.nav.nav-pills#toolbar
+      %li.active
+        %a{href: groups_path}
+          My Groups
+      %li
+        %a{href: "#"}
+          Create Group
+    
+    -# .container{style: "display: inline-block; float: right"}
+    -#   PlaceHolder
+  .mainTab-container.row
+    .col-md-8
+      %ul.nav.nav-tabs#mainTab
+        %li.active
+          %a{href: "#owner", "data-toggle" => "tab"}
+            As Owner
+        %li
+          %a{href: "#member", "data-toggle" => "tab"}
+            As Member
+    .form-inline.col-md-4#join
+      =form_tag("/groups/invitation") do
+        .form-group
+          %input.form-control#join-token{PlaceHolder: "Invitation token", name: "token"}
+          %button.btn.btn-default#join-btn
+            Join Group
+  
+  .tab-content
+    .tab-pane.active#owner
+      %ul.groups
+        - groups = groups_for @user, role: "owner"
+        = render groups
+    .tab-pane#member
+      %ul.groups
+        - groups = groups_for @user, role: "member"
+        = render groups

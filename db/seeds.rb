@@ -19,8 +19,18 @@ User.all.each do |user|
   user.create_home
 end
 
-Project.create(name: "sample", user_id: User.find_by(email: "yuman@outlook.com").id)
-Project.create(name: "sample1", user_id: User.find_by(email: "yuman@outlook.com").id)
+user = User.find_by(email: "yuman@outlook.com")
+
+Project.create(name: "sample", user_id: user.id)
+Project.create(name: "sample1", user_id: user.id)
+
+group = Group.create(name: "Sample Group", user_id: user.id)
+group2 = Group.create(name: "Sample Group2", user_id: 3)
+
+
+GroupRelationship.create(group_id: group.id, user_id: user.id, level: 0)
+GroupRelationship.create(group_id: group2.id, user_id: user.id)
+
 
 #User.all.each do |user|
   #user.create_home

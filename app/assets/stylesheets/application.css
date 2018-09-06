@@ -16,3 +16,11 @@
 li.user_icon{
   padding-top: 10px
 }
+
+.no-padding{
+  padding: 0 0 
+}
+
+.no-margin{
+  margin: 0 0
+}

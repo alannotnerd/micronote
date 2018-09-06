@@ -1,0 +1,11 @@
+-provide :title, "#{Project.find(@course.project_id).name}"
+.container
+  .row
+    .col-md-3
+      Member Projects
+    .col-md-9
+      .project-container
+        %ul{style: "list-style:none;"}
+          -@projects.each do |project|
+            - @project=project
+            =render "/shared/project_comb"

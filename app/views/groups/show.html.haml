@@ -1,0 +1,40 @@
+- provide :title, @group.name
+.row
+  .col-md-3
+    %ul.nav.bs-sidenav
+  
+  .col-md-9.container
+    - if @group.isOwnedBy current_user
+      %h2#invitation
+        Invitation
+      #invitation_pene
+        .form-inline
+          .form-group{style: "text-align: left; width:100%; text-indent: 10px"}
+            %label
+              Invitation Token
+            %input.form-control#token{placeholder: invitation_token(@group), :readonly => true, style: "margin: 0 30px"}
+            %button.btn.btn-primary#gentoken{onclick: "load_token()"}
+              Generate Token
+    #info_pane
+      %h2#info
+        Group Info
+      %ul.nav.nav-tabs#info-tab
+        %li.active
+          %a{href: "#member", "data-toggle" => "tab"}
+            Member
+        %li
+          %a{href: "#project", "data-toggle" => "tab"}
+            Project
+      
+      .tab-content
+        .tab-pane.active#member
+          %ul.users
+            =render @group.all
+        .tab-pane#project
+          %ul.projects
+            - if @group.isOwnedBy(current_user)
+              #create-course
+                %a.btn.btn-primary{href: new_course_path + "?group_id=#{@group.id}"}
+                  Create New Course
+            =render @group.all_courses
+      

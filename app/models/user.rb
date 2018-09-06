@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true, format:{ with: VALID_EMAIL_REGEX }, length:{maximum: 255}, uniqueness: {case_sensitive: false} 
   validates :password, length: { minimum: 6}, format:{ with: /\A[a-zA-z\d]+\z/ }, allow_nil: true
   has_secure_password
+  has_many :group
+  has_many :group_relationship
 
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
@@ -74,6 +76,10 @@ class User < ActiveRecord::Base
     # absolute_home_path = Datafolder::Env.root_path + "/#{self.id}"
     # FileUtils.rm_rf absolute_home_path if Dir.exists?(absolute_home_path)
     Datafolder::Env.del_r self.id.to_s
+  end
+
+  def is_admin?
+    return self.admin
   end
 
   private

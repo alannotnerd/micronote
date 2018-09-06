@@ -15,7 +15,10 @@
     =render 'layouts/header'
     .container
       -flash.each do |message_type, message|
-        %div{class: "alert alert-#{message_type}"}=message
+        -if message_type == "error"
+          %div{class: "alert alert-danger", role: "alert"}=message
+        -else
+          %div{class: "alert alert-#{message_type}", role: "alert"}=message
       =yield
       =render 'layouts/footer'
       =debug([params,session[:user_id]]) if Rails.env.development?

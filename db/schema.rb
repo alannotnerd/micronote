@@ -11,16 +11,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180614233246) do
+ActiveRecord::Schema.define(version: 20180906090705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "courses", force: :cascade do |t|
+    t.integer  "group_id"
+    t.integer  "project_id"
+    t.datetime "begin_date"
+    t.datetime "expire_date"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "opened",      default: true
+  end
+
+  add_index "courses", ["group_id", "project_id"], name: "index_courses_on_group_id_and_project_id", unique: true, using: :btree
+
+  create_table "group_relationships", force: :cascade do |t|
+    t.integer  "group_id"
+    t.integer  "user_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "level",      default: 10
+  end
+
+  add_index "group_relationships", ["group_id"], name: "index_group_relationships_on_group_id", using: :btree
+  add_index "group_relationships", ["user_id"], name: "index_group_relationships_on_user_id", using: :btree
+
+  create_table "groups", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "invitation_token"
+  end
+
+  add_index "groups", ["user_id"], name: "index_groups_on_user_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "pushed_by"
   end
 
   add_index "projects", ["user_id", "name"], name: "index_projects_on_user_id_and_name", using: :btree
@@ -44,5 +78,8 @@ ActiveRecord::Schema.define(version: 20180614233246) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
+  add_foreign_key "group_relationships", "groups"
+  add_foreign_key "group_relationships", "users"
+  add_foreign_key "groups", "users"
   add_foreign_key "projects", "users"
 end

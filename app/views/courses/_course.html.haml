@@ -1,0 +1,8 @@
+%li.border
+  %p
+    %strong
+      #{Project.find(course.project_id).name}
+  - if Group.find(course.group_id).isOwnedBy(current_user)
+    = link_to Project.find(course.project_id).name, "/courses/#{course.id}"
+  - else
+    =render Project.find_by(user_id: current_user.id, pushed_by: course.id)
