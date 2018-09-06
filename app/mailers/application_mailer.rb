@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "noreply@microhard.com"
+  default from: "support@gitlab.whu.edu.cn"
   layout 'mailer'
 end
