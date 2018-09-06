@@ -5,7 +5,7 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @user = User.find(param[:user_id])
+    @user = User.find(params[:user_id])
     if @user.is_admin?
       @group = Group.new(group_param)
       if @group.save
