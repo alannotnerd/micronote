@@ -19,3 +19,8 @@
 /spring
 /*.pid
 public/
+!public/404.html
+!public/500.html
+!public/422.html
+!public/favicon.ico
+!public/robots.txt
