@@ -38,9 +38,10 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem "codemirror-rails"
 
+gem "unicorn"
+
 # Use Unicorn as the app server
 # gem 'unicorn'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :production, :development do
