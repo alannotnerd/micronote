@@ -1,0 +1,1 @@
+function removeHeader(n){_a=$("#pif").contents().find("#kernel_indicator"),$("#pif").contents().find("#maintoolbar-container").append(_a),$("#pif").contents().find("#header-container").hide(),$("#pif").contents().find("#menubar").hide(),$("#pif").show(),n.style.height=n.contentWindow.document.body.scrollHeight+"px"}$(document).ready(function(){$("#pif").hide()});

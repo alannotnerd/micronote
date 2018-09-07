@@ -1,0 +1,1 @@
+function load_token(){console.log("load data"),$.get(document.location+"/invitation").done(function(o){console.log(document.location),$("#token").val(o.token)})}

@@ -7,9 +7,10 @@ class GroupsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     if @user.is_admin?
-      @group = Group.new(group_param)
+      @group = Group.new(name: params[:group][:name], user_id: @user.id)
       if @group.save
         GroupRelationship.create(group_id: @group.id, user_id: @user.id, level: 1)
+        redirect_to groups_path
       else
         render 'new'
       end
@@ -64,6 +65,6 @@ class GroupsController < ApplicationController
 
   private
     def group_param
-      params.require(:group).permit(:group_name, :user_id)
+      params.require(:group).permit(:name, :user_id)
     end
 end
