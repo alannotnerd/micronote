@@ -9,7 +9,6 @@ class GroupsController < ApplicationController
     if @user.is_admin?
       @group = Group.new(name: params[:group][:name], user_id: @user.id)
       if @group.save
-        GroupRelationship.create(group_id: @group.id, user_id: @user.id, level: 1)
         redirect_to groups_path
       else
         render 'new'

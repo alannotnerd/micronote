@@ -26,7 +26,7 @@ class CoursesController < ApplicationController
       _re.each do |r|
         user = User.find r.user_id
         if Project.find_by(user_id: user.id, name: name).nil?
-          Project.import project.id, user.id, Course.findby(group_id: group.id, project_id:project.id).id
+          Project.import project.id, user.id, Course.find_by(group_id: group.id, project_id:project.id).id
         end
       end
       flash[:info] = "<strong>Auto import working background</strong>. This may cost serveral minutes."

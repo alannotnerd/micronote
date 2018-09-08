@@ -6,31 +6,37 @@
 -#         %h1
 -#           = gravatar_for @user
 -#           = @user.name.capitalize
-%h1
-  #{@user.name}'s Projects
-.container
-  .row.center
-    -# %form{id: "new project", action: projects_path, method:"post", class: "form-inline"}
-    -#   %input.form-control#form_id{type: "hidden", value: @user.id}
-    -#   %input.form-control#form_name{placeholder: "name", style: "margin-bottom: 0px;"}
-    -#   %button.btn.btn-primary#create{action: projects_path, type:"submit"}+ Create New
-    -# .form-inline
-      
-    = form_for(Project.new, :html => {:class => "form-inline"}) do |f|
-      .form-group
-        =f.text_field :name, class: 'form-control', placeholder: "name", style: "margin-bottom: 0px"
-        -# %input.form-control#form_name{placeholder: "name", style: "margin-bottom: 0px;"}
-      .form-group
-        %button.btn.btn-default{type:"submit"}+Create New
+%p.h2
+  Your Projects
+-if @user.admin?
+  .container
+    .row.center
+      -# %form{id: "new project", action: projects_path, method:"post", class: "form-inline"}
+      -#   %input.form-control#form_id{type: "hidden", value: @user.id}
+      -#   %input.form-control#form_name{placeholder: "name", style: "margin-bottom: 0px;"}
+      -#   %button.btn.btn-primary#create{action: projects_path, type:"submit"}+ Create New
+      -# .form-inline
+      = form_for(Project.new, :html => {:class => "form-inline"}) do |f|
+        .form-group
+          =f.text_field :name, class: 'form-control', placeholder: "name", style: "margin-bottom: 0px"
+          -# %input.form-control#form_name{placeholder: "name", style: "margin-bottom: 0px;"}
+        .form-group
+          %button.btn.btn-default{type:"submit"}+Create New
 
-      .form-group
-        = hidden_field_tag "project[user_id]", @user.id
-      -# .from-group
-        -# =f.submit "+Create New", class: "btn btn-primary"
+        .form-group
+          = hidden_field_tag "project[user_id]", @user.id
+        -# .from-group
+          -# =f.submit "+Create New", class: "btn btn-primary"
 %div
-  %ul.projects
-    -@projects.each do |p|
-      %p
+  -if @projects.empty?
+    .well.well-lg
+      %span
         %strong
-          #{p.name}
-      =render p
+          You doesn't have any project yet.
+  -else
+    %ul.projects
+      -@projects.each do |p|
+        %p
+          %strong
+            #{p.name}
+        =render p

@@ -28,7 +28,7 @@ group = Group.create(name: "Sample Group", user_id: user.id)
 group2 = Group.create(name: "Sample Group2", user_id: 3)
 
 
-GroupRelationship.create(group_id: group.id, user_id: user.id, level: 0)
+# GroupRelationship.create(group_id: group.id, user_id: user.id, level: 0)
 GroupRelationship.create(group_id: group2.id, user_id: user.id)
 
 

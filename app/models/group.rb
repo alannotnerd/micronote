@@ -1,6 +1,12 @@
 class Group < ActiveRecord::Base
   belongs_to :user
   has_many :group_relationship
+  after_create :create_relationship
+
+  def create_relationship
+    # user = User.find user_id
+    GroupRelationship.create(group_id: id, user_id: user_id, level: 1)
+  end
 
   def owner
     User.find user_id
