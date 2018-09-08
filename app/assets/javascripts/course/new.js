@@ -1,3 +1,3 @@
-$("#ajax-p-name").onchange(function(e){
+$("#ajax-p-name").change(function(e){
   //todo
 })
