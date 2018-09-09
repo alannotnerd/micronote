@@ -29,7 +29,7 @@ class CoursesController < ApplicationController
           Project.import project.id, user.id, Course.find_by(group_id: group.id, project_id:project.id).id
         end
       end
-      flash[:info] = "<strong>Auto import working background</strong>. This may cost serveral minutes."
+      flash[:info] = "Auto import working background. This may cost serveral minutes."
       redirect_to group
       return
     else
