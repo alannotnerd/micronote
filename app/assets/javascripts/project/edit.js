@@ -10,10 +10,6 @@ $(document).ready(function (){
 //   }
 // }
 
-function toggleFullScreen() {
-  $("#pif").addClass("full-screen");
-}
-
 
 function removeHeader(obj){
   _a = $("#pif").contents().find("#kernel_indicator")
@@ -39,21 +35,13 @@ function removeHeader(obj){
       </div>
     `
   );
-  // $("#pif").contents().find("#header").hide();
-  // $("#pif").contents().find("select#show_type").change(function (){
-  //   if(this.value === "None"){
-  //     // console.log("what the fuck None");
-  //     $("li[data-name='None'] a").click();
-  //   }else if(this.value === "SlideShow"){
-  //     // console.log("what the fuck Show");
-  //     $("li[data-name='Slideshow'] a").click();
-  //     // alert("clicked");
-  //   }
-  // })
+
+  var b = function (){
+    $("#pif").parent().addClass("full-screen");
+    console.log("ojbk");
+  }
   $("#pif").show();
-  $("#full_screen_btn").click(function (){
-    $("#pif").addClass("full-screen");
-  })
+  $("#pif").contents().find("#full_screen_btn").click(b);
   obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
 }
 
