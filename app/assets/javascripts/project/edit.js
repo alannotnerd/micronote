@@ -37,8 +37,19 @@ function removeHeader(obj){
   );
 
   var b = function (){
-    $("#pif").parent().addClass("full-screen");
-    console.log("ojbk");
+    var container = $("#pif").parent();
+    if (container.hasClass("full-screen")){
+      $("header").show();
+      $("footer").show();
+      $("body").removeClass("full-screen");
+      container.removeClass("full-screen");
+    }else{
+      $("header").hide();
+      $("footer").hide();
+      container.addClass("full-screen");
+      $("body").addClass("full-screen");
+    }
+
   }
   $("#pif").show();
   $("#pif").contents().find("#full_screen_btn").click(b);
