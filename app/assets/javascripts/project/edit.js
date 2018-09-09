@@ -43,9 +43,11 @@ function removeHeader(obj){
       $("footer").show();
       $("body").removeClass("full-screen");
       container.removeClass("full-screen");
+      $("#pif").removeClass("full-screen");
     }else{
       $("header").hide();
       $("footer").hide();
+      $("#pif").addClass("full-screen");
       container.addClass("full-screen");
       $("body").addClass("full-screen");
     }
