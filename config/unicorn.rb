@@ -1,6 +1,6 @@
 app_path = File.expand_path(File.dirname(__FILE__)+"/..")
 
-worker_processes(ENV['RAILS_ENV'] == 'production'? 4:1)
+worker_processes(ENV['RAILS_ENV'] == 'production'? 32:1)
 
 listen app_path + '/tmp/unicorn.sock', backlog: 64
 # listen(3000, backlog:64)

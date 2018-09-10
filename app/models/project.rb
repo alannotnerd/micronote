@@ -20,7 +20,22 @@ class Project < ActiveRecord::Base
     # user = User.find self.user_id
     # home = user.home_path
     # Project.api "delete", "contents", home+self.name
-    Datafolder::Env.del_r self.home
+    begin
+      Datafolder::Env.del_r self.home
+    rescue 
+      puts "#{self.id} Not Fount"
+    end
+  end
+
+  def Project.clean
+    all = Project.all
+    all.each do |p|
+      _ps = Project.where(user_id: p.id, name: p.name)
+      _p_main = _ps[0]
+      _ps.each do |_p|
+        _p.destroy unless _p.id == _p_main.id
+      end
+    end
   end
 
   def Project.api(method, type, path="", payload={})
@@ -54,6 +69,11 @@ class Project < ActiveRecord::Base
     home = user.home_path
     return "#{Rails.env}#{home}/#{self.id}/index.ipynb"
   end
+  def home
+    user = User.find self.user_id
+    home = user.home_path
+    return "#{Rails.env}#{home}/#{self.id}"
+  end
 
   private
     def replace_last path, name
@@ -62,10 +82,5 @@ class Project < ActiveRecord::Base
       temp.join("/")
     end 
 
-    def home
-      user = User.find self.user_id
-      home = user.home_path
-      return "#{Rails.env}#{home}/#{self.id}"
-    end
 
 end
