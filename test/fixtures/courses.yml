@@ -1,13 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  project_id: 
-  group_id: 
-  begin_data: 
-  expire_date: 2018-09-05 07:07:47
-
-two:
-  project_id: 
-  group_id: 
-  begin_data: 
-  expire_date: 2018-09-05 07:07:47
+  project_id: <%= projects("two").id%>
+  group_id: <%= groups("two").id%>
+  begin_data: <%= Time.zone.now%>
+  expire_date: <%= Time.zone.now + 7200%>

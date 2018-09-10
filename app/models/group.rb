@@ -28,12 +28,12 @@ class Group < ActiveRecord::Base
 
   def all_courses
     cs = Course.where group_id: id
-    # projects = []
-    # __cs.each do |c|
-    #   _project = Project.find c.project_id
-    #   projects.append _project
-    # end
     return cs
+  end
+
+  def join(user)
+    gr = GroupRelationship.new user_id: user.id, group_id: id
+    # if gr.save
   end
 
   def remember_token token

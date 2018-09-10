@@ -1,9 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  group_id: 
-  user_id: 
+  group_id: <%= groups("one").id%>
+  user_id: <%= groups("one").user_id%>
+  level: 0
 
 two:
-  group_id: 
-  user_id: 
+  group_id: <%= groups("two").id%> 
+  user_id: <%= groups("two").id%>
+  level: 0
+
+# As member
+
+three:
+  group_id: <%= groups("one").id%>
+  user_id: <%= users("Man").id%>
+  level: 10

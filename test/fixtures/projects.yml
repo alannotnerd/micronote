@@ -1,9 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  user_id: 
+  name: sample1
+  user_id: <%= users("Man").id %>
+  pushed_by: nil
 
 two:
-  name: MyString
-  user_id: 
+  name: sample2
+  user_id: <%= users("test").id %>
+  pushed_by: nil
+
+three:
+  name: sample2
+  user_id: <%= users("Man").id %>
+  pushed_by: <%= users("test").id %>
