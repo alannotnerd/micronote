@@ -16,3 +16,4 @@ three:
   group_id: <%= groups("one").id%>
   user_id: <%= users("Man").id%>
   level: 10
+
