@@ -33,7 +33,12 @@ class Group < ActiveRecord::Base
 
   def join(user)
     gr = GroupRelationship.new user_id: user.id, group_id: id
-    # if gr.save
+    if GroupRelationship.find_by(user_id:user.id, group_id: id).nil?
+      gr.save
+      return true
+    else
+      return false
+    end
   end
 
   def remember_token token
