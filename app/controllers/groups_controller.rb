@@ -52,13 +52,18 @@ class GroupsController < ApplicationController
       flash[:danger] = "Invalid Invitation Token Or Token expired"
       redirect_to root_path
     else
-      GroupRelationship.create(user_id: current_user.id, group_id: group_id)
-      user_id = current_user.id
-      _cr = Course.where(group_id: group_id)
-      _cr.each do |c|
-        Project.import c.project_id, user_id, Course.find_by(group_id: group.id, project_id: c.project_id).id
+      unless group.join(current_user)
+        flash[:danger] = "You're already in group"
+        redirect_to groups_path
+      else
+        flash[:info] = "Success! waiting for importing projects"
+        user_id = current_user.id
+        _cr = Course.where(group_id: group_id)
+        _cr.each do |c|
+          Project.import c.project_id, user_id, Course.find_by(group_id: group.id, project_id: c.project_id).id
+        end
+        redirect_to groups_path
       end
-      redirect_to groups_path
     end
   end
 
