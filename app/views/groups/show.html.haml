@@ -28,17 +28,12 @@
       
       .tab-content
         .tab-pane.active#member
-          =will_paginate @group.all_relationships
           %ul.grs
             =render @group.all_relationships
-          =will_paginate
         .tab-pane#project
-          =will_paginate 
           %ul.projects
             - if @group.isOwnedBy(current_user)
               #create-course
                 %a.btn.btn-primary{href: new_course_path + "?group_id=#{@group.id}"}
                   Create New Course
-            =render @group.all_courses
-          =will_paginate
-      
+            =render @group.all_courses      

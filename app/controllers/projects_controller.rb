@@ -28,8 +28,10 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
-
-    if current_user.nil?
+    if not @project.isOpen?
+      flash[:danger] = "Sorry, project is closed."
+      redirect_to root_url
+    elsif current_user.nil?
       flash[:error] = "Please Log in first"
       redirect_to root_url
     elsif @project.user_id != current_user.id

@@ -14,7 +14,7 @@ class CourseTest < ActiveSupport::TestCase
   test "should clear imported projects" do
     @course.destroy
     @users.each do |u|
-      assert_empty Project.where user_id: u, pushed_by: @course.project_id
+      assert_empty Project.where user_id: u, pushed_by: @course
     end
   end
 end

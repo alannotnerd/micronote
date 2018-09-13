@@ -6,6 +6,6 @@ class Course < ActiveRecord::Base
   end
 
   def clean_up
-    CourseCleanupJob.perform_now group_id: group_id, project_id: project_id
+    CourseCleanupJob.perform_now self
   end
 end

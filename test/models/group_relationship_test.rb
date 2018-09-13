@@ -13,7 +13,7 @@ class GroupRelationshipTest < ActiveSupport::TestCase
   test "before destroy should clear projcts" do
     @gr.destroy
     @courses.each do |c|
-      assert_empty Project.where(user_id: @user, pushed_by: c.project_id)
+      assert_empty Project.where(user_id: @user, pushed_by: c)
     end
   end
 end

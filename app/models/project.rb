@@ -64,6 +64,10 @@ class Project < ActiveRecord::Base
     Datafolder::Env.mv_r "#{_project.user_id}/#{p_id}/index.ipynb", "#{u_id}/#{newprj.id}"
   end
 
+  def isOpen?
+    return self.opened
+  end
+
   def nbpath
     user = User.find self.user_id
     home = user.home_path

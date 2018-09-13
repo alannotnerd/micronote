@@ -1,7 +1,8 @@
 - provide :title, @project.name
-.row
-  %a.btn.btn-primary{href: edit_project_path(@project)}
-    Edit
+- if @project.isOpen?
+  .row
+    %a.btn.btn-primary{href: edit_project_path(@project)}
+      Edit
 %div
   %iframe.full#show-nbpage{ src: "#{view_for @project}", frameborder: "no",height: "150%", scrolling: "no", onload: "autoResize(this);"}
   -# %iframe{src: "http://www.baidu.com"}
