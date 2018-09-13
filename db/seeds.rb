@@ -9,7 +9,7 @@
 User.create!(name: "Man Yu", email: "yuman@outlook.com", password: "101209", password_confirmation: "101209", admin:true, activated: true, activated_at: Time.zone.now)
 
 99.times do |n|
-  name = Faker::Name.name
+  name =  "test#{n}"
   email = "test_user#{n}@microhard.com"
   password = "qwerasdf"
   User.create!(name: name, email: email, password: password, password_confirmation: password, activated: true, activated_at: Time.zone.now)
@@ -21,8 +21,12 @@ end
 
 user = User.find_by(email: "yuman@outlook.com")
 
-Project.create(name: "sample", user_id: user.id)
-Project.create(name: "sample1", user_id: user.id)
+# Project.create(name: "sample", user_id: user.id)
+# Project.create(name: "sample1", user_id: user.id)
+40.times do |n|
+  Project.create name: "sample#{n}", user_id: user.id
+end
+
 
 group = Group.create(name: "Sample Group", user_id: user.id)
 group2 = Group.create(name: "Sample Group2", user_id: 3)

@@ -1,4 +1,5 @@
 Man:
+  id: 1
   name: Yu Man
   email: yuman@example.com
   password_digest: <%=User.digest('qwerasdf')%>
@@ -7,6 +8,7 @@ Man:
   activated_at: <%=Time.zone.now%>
 
 test:
+  id: 2
   name: test 
   email: test@example.com 
   password_digest: <%= User.digest('qwerasdf') %>
@@ -14,6 +16,7 @@ test:
   activated_at: <%= Time.zone.now%>
 
 lana:
+  id: 3
   name: Lana Kane
   email: hands@example.gov
   password_digest:  <%= User.digest('qwerasdf') %>
@@ -21,6 +24,7 @@ lana:
   activated_at: <%= Time.zone.now %>
 
 malory:
+  id: 4
   name: Malory Archer
   email: boss@example.com
   password_digest: <%= User.digest('qwerasdf') %>
@@ -29,6 +33,7 @@ malory:
 
 <% 30.times do |n| %>
 user_<%= n %>:
+  id: <%= n+5%>
   name: <%= "User #{n}"%>
   email: <%= "user-#{n}@example.com"%>
   password_digest: <%= User.digest('qwerasdf')%>

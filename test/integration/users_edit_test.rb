@@ -2,6 +2,7 @@ require 'test_helper'
 
 class UsersEditTest < ActionDispatch::IntegrationTest
   def setup
+    super
     @user = users(:test)
   end
 

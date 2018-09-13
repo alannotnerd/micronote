@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180906090705) do
+ActiveRecord::Schema.define(version: 20180910071421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20180906090705) do
   end
 
   add_index "group_relationships", ["group_id"], name: "index_group_relationships_on_group_id", using: :btree
+  add_index "group_relationships", ["user_id", "group_id"], name: "index_group_relationships_on_user_id_and_group_id", unique: true, using: :btree
   add_index "group_relationships", ["user_id"], name: "index_group_relationships_on_user_id", using: :btree
 
   create_table "groups", force: :cascade do |t|
@@ -57,7 +58,7 @@ ActiveRecord::Schema.define(version: 20180906090705) do
     t.integer  "pushed_by"
   end
 
-  add_index "projects", ["user_id", "name"], name: "index_projects_on_user_id_and_name", using: :btree
+  add_index "projects", ["user_id", "name", "pushed_by"], name: "index_projects_on_user_id_and_name_and_pushed_by", unique: true, using: :btree
   add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|

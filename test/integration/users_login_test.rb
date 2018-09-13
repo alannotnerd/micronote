@@ -4,7 +4,8 @@ class UsersLoginTestTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
-  def setup 
+  def setup
+    super
     @user= users(:test)
   end
 

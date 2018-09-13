@@ -3,5 +3,5 @@
   %a.btn.btn-primary{href: edit_project_path(@project)}
     Edit
 %div
-  %iframe#project-preview{ src: "#{view_for @project}", frameborder: "no",height: "150%", scrolling: "no",style: "overflow:hidden;width:100%;height:150%;min-height: 920px"}
+  %iframe.full#show-nbpage{ src: "#{view_for @project}", frameborder: "no",height: "150%", scrolling: "no", onload: "autoResize(this);"}
   -# %iframe{src: "http://www.baidu.com"}

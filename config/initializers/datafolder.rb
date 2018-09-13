@@ -14,15 +14,18 @@ module Datafolder
     def Env.del(path)
       path[0] = "" if path.start_with? '/'
       path[-1] = "" if path.start_with? '/'
-      if path.empty?
-        RestClient.delete(URI.encode("#{Rails.application.jupyter_path}/api/contents/#{Rails.env}"))
-      else
-        RestClient.delete(URI.encode("#{Rails.application.jupyter_path}/api/contents/#{Rails.env}/#{path}"))
+      if Env.exist?(path)
+        if path.empty?
+          RestClient.delete(URI.encode("#{Rails.application.jupyter_path}/api/contents/#{Rails.env}"))
+        else
+          RestClient.delete(URI.encode("#{Rails.application.jupyter_path}/api/contents/#{Rails.env}/#{path}"))
+        end
       end
       return nil
     end
 
     def Env.del_r(path)
+      return true unless Env.exist? path
       subdir = Env.ls path
       if subdir.empty?
         Env.del path
@@ -70,7 +73,7 @@ module Datafolder
       )
     end
 
-    def Env.exist?(path)
+    def Env.exist?(path="")
       begin
         if path.empty?
           RestClient.get(URI.encode("#{Rails.application.jupyter_path}/api/contents/#{Rails.env}"))
@@ -85,7 +88,7 @@ module Datafolder
     end
 
     def Env.init
-      unless Env.exist? ""
+      unless Env.exist?
         RestClient.put(
           URI.encode("#{Rails.application.jupyter_path}/api/contents/#{Rails.env}"),
           {name: Rails.env, path: Rails.env, content: "", type: "directory"}.to_json
@@ -93,7 +96,7 @@ module Datafolder
       end
     end
 
-    def Env.ls(path)
+    def Env.ls(path="")
       response = RestClient.get(URI.encode("#{Rails.application.jupyter_path}/api/contents/#{Rails.env}/#{path}"))
       response = JSON.parse(response.body)
       return response["content"]

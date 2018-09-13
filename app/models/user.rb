@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6}, format:{ with: /\A[a-zA-z\d]+\z/ }, allow_nil: true
   has_secure_password
   has_many :group
+  has_many :project
   has_many :group_relationship
 
   def User.digest(string)

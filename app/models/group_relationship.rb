@@ -1,6 +1,7 @@
 class GroupRelationship < ActiveRecord::Base
   belongs_to :group
   belongs_to :user
+  before_destroy :clean_up
   def GroupRelationship.clean
     all = GroupRelationship.all
     all.each do |gr|
@@ -10,5 +11,9 @@ class GroupRelationship < ActiveRecord::Base
         _gr.destroy unless _gr.id == _gr_main.id
       end
     end
+  end
+
+  def clean_up
+    GroupRelationshopCleanupJob.perform_now self
   end
 end

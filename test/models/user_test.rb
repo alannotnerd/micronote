@@ -5,8 +5,8 @@ class UserTest < ActiveSupport::TestCase
   #   assert true
   # end
   def setup
+    super
     @user = User.new name: "Example User",email: "user@example.com", password: "foobar", password_confirmation: "foobar", id: 10086
-    Datafolder::Env.init
   end
 
   test "should be valid" do
@@ -75,10 +75,5 @@ class UserTest < ActiveSupport::TestCase
   test "create password reset token " do
     @user.create_reset_digest
     assert_not @user.reset_digest.nil?
-  end
-
-  def teardown
-    # FileUtils.rm_rf '/data/rails/test' if Dir.exists?('/data/rails/test')
-    Datafolder::Env.drop
   end
 end

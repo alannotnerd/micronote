@@ -13,14 +13,32 @@ class ActiveSupport::TestCase
     !session[:user_id].nil?
   end
 
+  def setup
+    Datafolder::Env.init
+    raise "init fialed" unless Datafolder::Env.exist?
+    # User.find(1).create_home
+    # raise "User All: #{User.all.count}"
+    User.all.each do |u|
+      u.create_home
+      # raise "init fialed" unless Datafolder::Env.exist? u.home_path
+    end
+    Project.all.each do |p|
+      p.create_home
+    end
+  end
+
+  def teardown
+    Datafolder::Env.drop
+  end
+
   def log_in_as(user, option={})
     password = option[:password] || 'qwerasdf'
     remember_me = option[:remember_me] || '1'
     if integration_test?
       post login_path, session: {
-	email: user.email,
-	password: password,
-	remember_me: remember_me
+        email: user.email,
+        password: password,
+        remember_me: remember_me
       }
     else
       session[:user_id] = user.id

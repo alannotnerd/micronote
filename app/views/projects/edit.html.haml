@@ -1,4 +1,3 @@
 - provide :title, @project.name
 -# = render cells(@project)
-%iframe.full#pif{name: "fip", src: edit_url(@project), frameborder: "no", onload: "removeHeader(this)"}
-= javascript_include_tag 'project/edit'
+%iframe.full#pif{name: "pif", src: edit_url(@project), frameborder: "no", onload: "removeHeader(this);"}

@@ -5,6 +5,7 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
   #   assert true
   # end
   def setup
+    super
     @user = users :test
   end
 

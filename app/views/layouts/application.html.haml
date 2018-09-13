@@ -4,11 +4,8 @@
     %title=full_title(yield(:title))
     = stylesheet_link_tag 'application', media:'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = javascript_include_tag 'https://codemirror.net/lib/codemirror.js'
-    = stylesheet_link_tag 'https://codemirror.net/lib/codemirror.css'
-    = javascript_include_tag 'https://codemirror.net/addon/edit/continuelist.js'
-    = javascript_include_tag 'https://codemirror.net/mode/markdown/markdown.js'
-    = javascript_include_tag 'https://codemirror.net/mode/xml/xml.js'
+    = javascript_include_tag "#{params[:controller]}", "data-turbolinks-track" => true
+    = stylesheet_link_tag "#{params[:controller]}", media: 'all', 'data-turbolinks-track' => true
     = csrf_meta_tags
     = render 'layouts/shim'
   %body
@@ -21,4 +18,4 @@
           %div{class: "alert alert-#{message_type}", role: "alert"}=message
       =yield
       =render 'layouts/footer'
-      =debug([params,session[:user_id]]) if Rails.env.development?
+      -# =debug([params,session[:user_id]]) if Rails.env.development?

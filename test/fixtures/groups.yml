@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   name: group1
-  user_id: <%= users("Man").id%>
+  user_id: 1
 
 two:
+  id: 2
   name: group2
-  user_id: <%= users("test").id%>
+  user_id: 2
