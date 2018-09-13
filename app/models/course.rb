@@ -20,4 +20,10 @@ class Course < ActiveRecord::Base
   def origin_project
     Project.find project_id
   end
+
+  def toggle_close
+    if opened
+      update_attribute :opened, false
+    end
+  end
 end

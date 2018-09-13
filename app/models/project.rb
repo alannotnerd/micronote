@@ -69,7 +69,12 @@ class Project < ActiveRecord::Base
   end
 
   def isOpen?
-    return self.opened
+    if pushed_by.nil?
+      return true
+    else
+      course = Course.find pushed_by
+      return course.opened
+    end
   end
 
   def nbpath
