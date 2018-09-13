@@ -11,7 +11,7 @@ class GroupRelationshopCleanupJobTest < ActiveJob::TestCase
     GroupRelationshopCleanupJob.perform_now @gr
     cs = Group.find(@gr.group_id).all_courses
     cs.each do |c|
-      assert_empty Project.where(user_id: @gr.user_id, pushed_by: c.project_id)
+      assert_empty Project.where(user_id: @gr.user_id, pushed_by: c)
     end
   end
 end

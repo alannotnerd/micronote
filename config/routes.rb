@@ -11,11 +11,14 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :groups
   resources :projects
-  resources :courses, only: [:new, :create, :show, :edit]
+  resources :courses
+  # resources :group_relationships, only: [:destroy]
 
   get '/groups/:id/invitation' => 'groups#gen_invitation'
   post '/groups/invitation' => 'groups#proc_invitation'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+  get '/courses/:id/close' => "courses#close"
+  delete '/group_relationships/:id' => 'groups#rm_user'
 end

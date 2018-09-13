@@ -21,6 +21,18 @@ li.user_icon{
   padding-top: 10px
 }
 
+ul.no-dot{
+  list-style: none;
+}
+
+.margin-top{
+  margin-top: 15px;
+}
+
+.right{
+  float: right;
+}
+
 .no-padding{
   padding: 0 0 
 }

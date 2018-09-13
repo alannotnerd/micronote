@@ -1,6 +1,12 @@
 %li
-  =gravatar_for group_relationship.user, size: 30
-  =link_to group_relationship.user.name, group_relationship.user
-  -if group_relationship.group.isOwnedBy(current_user)
-    |
-    =link_to "delete", group_relationship, method: :delete, data: { confirm: "Are you sure?"}
+  .panel.panel-default{style: "margin-bottom: 5px"}
+    .panel.panel.panel-heading.no-margin
+      .link-wrapper{style: "display: inline-block"}
+        %a.hover-link{href: user_path(group_relationship.user)}
+        =gravatar_for group_relationship.user, size: 20
+        %i
+          #{group_relationship.user.name}
+      -if group_relationship.group.isOwnedBy(current_user) && group_relationship.user != current_user
+        =link_to "delete", group_relationship, method: :delete, data: { confirm: "Are you sure?"}, style: "float: right; margin-top:-5px; z-index:51", class: "btn btn-primary btn-sm"
+    -# .panel.panel-body
+      -# =group_relationship.user.name

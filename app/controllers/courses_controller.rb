@@ -1,8 +1,16 @@
 class CoursesController < ApplicationController
+
   def new
     @course = Course.new
-    if params.key?(:group_id)
-      @group = Group.find params[:group_id]
+    if params.key?(:group_id) then
+      @group = Group.find(params[:group_id])
+      unless @group.isOwnedBy(current_user) then
+        flash[:danger] = "Make sure you have access permission."
+        redirect_to root_url
+      end
+    else
+      flash[:danger] = "illegal url request"
+      redirect_to root_url
     end
   end
 
@@ -39,11 +47,31 @@ class CoursesController < ApplicationController
     # redirect_to group
   end
 
+
   def show
     @course = Course.find params[:id]
+    group = Group.find @course.group_id
+    if group.isOwnedby(current_user)
+      flash[:danger] = "Only group owner can access."
+      redirect_to group_path(group) and return
+    end
     @projects = Project.where(pushed_by: @course.id)
   end
+  def close
+    @course = Course.find params[:id].to_i
+    @course.projects.each do |p|
+      p.close
+    end
+    flash[:info] = "Course #{@course.origin_project.name} closed!"
+    redirect_to group_path(@course.group)
+  end
 
+  def destroy
+    @course = Course.find params[:id]
+    @course.destroy
+    flash[:info] = "Course destroy process invoking"
+    redirect_to group_path(@course.group)
+  end
   private
     def course_params
       params.require(:course).permit(:project_name, :group_id)

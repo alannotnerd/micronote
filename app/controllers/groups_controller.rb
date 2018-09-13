@@ -67,6 +67,13 @@ class GroupsController < ApplicationController
     end
   end
 
+  def rm_user
+    @gr = GroupRelationship.find params[:id]
+    @gr.destroy
+    flash[:info] = "user #{@gr.user} removed."
+    redirect_to group_path(@gr.group)
+  end
+
   private
     def group_param
       params.require(:group).permit(:name, :user_id)

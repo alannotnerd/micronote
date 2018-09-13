@@ -27,6 +27,10 @@ class Project < ActiveRecord::Base
     end
   end
 
+  def close
+    update_attribute(:opened, false)
+  end
+
   def Project.clean
     all = Project.all
     all.each do |p|
