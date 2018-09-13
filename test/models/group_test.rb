@@ -38,7 +38,7 @@ class GroupTest < ActiveSupport::TestCase
   test "group_destroy" do
     @group.destroy
     assert_empty GroupRelationship.where(group_id: @group)
-    assert_empty Courses.where(group_id: @group)
+    assert_empty Course.where(group_id: @group)
   end
 end
 

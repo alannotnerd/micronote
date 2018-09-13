@@ -2,6 +2,7 @@ class Group < ActiveRecord::Base
   belongs_to :user
   has_many :group_relationship
   after_create :create_relationship
+  before_destroy :clean_up
 
   def create_relationship
     # user = User.find user_id
@@ -24,6 +25,19 @@ class Group < ActiveRecord::Base
       users.append _user
     end
     return users
+  end
+
+  def clean_up
+    self.all_courses.each do |c|
+      c.destroy
+    end
+    self.all_relationships.each do |gr|
+      gr.destroy
+    end
+  end
+
+  def all_relationships
+    return GroupRelationship.where group_id: id
   end
 
   def all_courses

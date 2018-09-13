@@ -1,0 +1,6 @@
+%li
+  =gravatar_for group_relationship.user, size: 30
+  =link_to group_relationship.user.name, group_relationship.user
+  -if group_relationship.group.isOwnedBy(current_user)
+    |
+    =link_to "delete", group_relationship, method: :delete, data: { confirm: "Are you sure?"}

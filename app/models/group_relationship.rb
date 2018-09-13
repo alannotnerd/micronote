@@ -13,6 +13,14 @@ class GroupRelationship < ActiveRecord::Base
     end
   end
 
+  def user
+    User.find user_id
+  end
+
+  def group
+    Group.find group_id
+  end
+
   def clean_up
     GroupRelationshopCleanupJob.perform_now self
   end
