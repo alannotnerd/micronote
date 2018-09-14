@@ -68,6 +68,7 @@ class GroupsController < ApplicationController
   end
 
   def rm_user
+    # FIXME use group.rm_user
     @gr = GroupRelationship.find params[:id]
     @gr.destroy
     flash[:info] = "user #{@gr.user} removed."

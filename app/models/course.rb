@@ -24,6 +24,7 @@ class Course < ActiveRecord::Base
   def toggle_close
     if opened
       update_attribute :opened, false
+      update_attribute :expire_date, Time.zone.now
     end
   end
 end

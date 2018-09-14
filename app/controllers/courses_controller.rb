@@ -28,6 +28,7 @@ class CoursesController < ApplicationController
       redirect_to new_course_path+"?group_id=#{group.id}"
       return
     end
+    # FIXME: user group.add_course
     if Course.create project_id: project.id, group_id: group.id, begin_date: Time.now
       _re = GroupRelationship.where(group_id: group.id)
       name = project.name

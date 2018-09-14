@@ -45,6 +45,14 @@ class Group < ActiveRecord::Base
     return cs
   end
 
+  def add_course project_name
+    # TODO
+  end
+
+  def rm_user(user)
+    # TODO
+  end
+
   def join(user)
     gr = GroupRelationship.new user_id: user.id, group_id: id
     if GroupRelationship.find_by(user_id:user.id, group_id: id).nil?
