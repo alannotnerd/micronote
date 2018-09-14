@@ -31,7 +31,7 @@ end
 group = Group.create(name: "Sample Group", user_id: user.id)
 group2 = Group.create(name: "Sample Group2", user_id: 3)
 
-group2.join(User.find 1)
+group.join(User.find 2)
 # GroupRelationship.create(group_id: group.id, user_id: user.id, level: 0)
 
 

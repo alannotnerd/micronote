@@ -52,7 +52,7 @@ class CoursesController < ApplicationController
   def show
     @course = Course.find params[:id]
     group = Group.find @course.group_id
-    if group.isOwnedby(current_user)
+    if not group.isOwnedBy(current_user)
       flash[:danger] = "Only group owner can access."
       redirect_to group_path(group) and return
     end

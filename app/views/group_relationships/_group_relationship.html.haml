@@ -7,10 +7,6 @@
         %i
           #{group_relationship.user.name}
       -if group_relationship.group.isOwnedBy(current_user) && group_relationship.user != current_user
-<<<<<<< HEAD
-        =link_to "delete", "group_relationships/#{group_relationship.id}", method: :delete, data: { confirm: "Are you sure?"}, style: "float: right; margin-top:-5px; z-index:51", class: "btn btn-primary btn-sm"
-=======
         =link_to "delete", "/group_relationships/#{group_relationship.id}", method: :delete, data: { confirm: "Are you sure?"}, style: "float: right; margin-top:-5px; z-index:51", class: "btn btn-primary btn-sm"
->>>>>>> 58274ad773d266b5cea0f3828d7940d35b9367ac
     -# .panel.panel-body
       -# =group_relationship.user.name

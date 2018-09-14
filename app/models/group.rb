@@ -1,5 +1,5 @@
 class Group < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :owner, class_name: "User", foreign_key: "user_id"
   has_many :group_relationship
   after_create :create_relationship
   before_destroy :clean_up
@@ -7,10 +7,6 @@ class Group < ActiveRecord::Base
   def create_relationship
     # user = User.find user_id
     GroupRelationship.create(group_id: id, user_id: user_id, level: 1)
-  end
-
-  def owner
-    User.find user_id
   end
 
   def isOwnedBy(user)
