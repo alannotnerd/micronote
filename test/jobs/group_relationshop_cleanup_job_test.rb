@@ -9,7 +9,7 @@ class GroupRelationshopCleanupJobTest < ActiveJob::TestCase
   end
   test "cleanup" do
     GroupRelationshopCleanupJob.perform_now @gr
-    cs = Group.find(@gr.group_id).all_courses
+    cs = Group.find(@gr.group_id).courses
     cs.each do |c|
       assert_empty Project.where(user_id: @gr.user_id, pushed_by: c)
     end

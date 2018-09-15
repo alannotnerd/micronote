@@ -60,9 +60,6 @@ class CoursesController < ApplicationController
   end
   def close
     @course = Course.find params[:id].to_i
-    @course.projects.each do |p|
-      p.close
-    end
     @course.toggle_close
     flash[:info] = "Course #{@course.origin_project.name} closed!"
     redirect_to group_path(@course.group)

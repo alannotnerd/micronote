@@ -9,7 +9,7 @@ timeout 300
 
 working_directory app_path
 pid app_path + '/tmp/unicorn.pid'
-stderr_path app_path + '/log/unicorn.log'
+stderr_path "/dev/stderr"
 stdout_path app_path + '/log/unicorn.log'
 
 preload_app true

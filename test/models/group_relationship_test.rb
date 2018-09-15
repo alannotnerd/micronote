@@ -8,7 +8,7 @@ class GroupRelationshipTest < ActiveSupport::TestCase
     @gr = group_relationships(:one)
     @user = User.find @gr.user_id
     @group = Group.find @gr.group_id
-    @courses = @group.all_courses
+    @courses = @group.courses
   end
   test "before destroy should clear projcts" do
     @gr.destroy

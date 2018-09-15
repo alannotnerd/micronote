@@ -30,11 +30,11 @@
       .tab-content.margin-top
         .tab-pane.active#member
           %ul.grs.no-dot
-            =render @group.all_relationships
+            =render @group.group_relationships
         .tab-pane#project
           %ul.projects
             - if @group.isOwnedBy(current_user)
               #create-course
                 %a.btn.btn-primary{href: new_course_path + "?group_id=#{@group.id}"}
                   Create New Course
-            =render @group.all_courses      
+            =render @group.courses      

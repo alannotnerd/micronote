@@ -17,8 +17,8 @@ class GroupTest < ActiveSupport::TestCase
   end
 
   test "group_course_number" do
-    assert_equal @group.all_courses.count, 0
-    assert_equal groups("two").all_courses.count, 1
+    assert_equal @group.courses.size, 0
+    assert_equal groups("two").courses.size, 1
   end
 
   test "group_add member" do

@@ -1,6 +1,7 @@
 class Group < ActiveRecord::Base
   belongs_to :owner, class_name: "User", foreign_key: "user_id"
-  has_many :group_relationship
+  has_many :group_relationships
+  has_many :courses
   after_create :create_relationship
   before_destroy :clean_up
 
@@ -24,21 +25,12 @@ class Group < ActiveRecord::Base
   end
 
   def clean_up
-    self.all_courses.each do |c|
+    self.courses.each do |c|
       c.destroy
     end
-    self.all_relationships.each do |gr|
+    self.group_relationships.each do |gr|
       gr.destroy
     end
-  end
-
-  def all_relationships
-    return GroupRelationship.where group_id: id
-  end
-
-  def all_courses
-    cs = Course.where group_id: id
-    return cs
   end
 
   def add_course project_name
