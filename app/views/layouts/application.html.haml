@@ -5,12 +5,13 @@
     = stylesheet_link_tag 'application', media:'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = javascript_include_tag "#{params[:controller]}", "data-turbolinks-track" => true
+    = javascript_include_tag "#{params[:controller]}/#{params[:action]}", "data-turbolinks-track" => true
     = stylesheet_link_tag "#{params[:controller]}", media: 'all', 'data-turbolinks-track' => true
     = csrf_meta_tags
     = render 'layouts/shim'
   %body
     =render 'layouts/header'
-    .container
+    .container#root
       -flash.each do |message_type, message|
         -if message_type == "error"
           %div{class: "alert alert-danger", role: "alert"}=message
@@ -18,4 +19,4 @@
           %div{class: "alert alert-#{message_type}", role: "alert"}=message
       =yield
       =render 'layouts/footer'
-      -# =debug([params,session[:user_id]]) if Rails.env.development?
+      =debug([params,session[:user_id]]) if Rails.env.development?

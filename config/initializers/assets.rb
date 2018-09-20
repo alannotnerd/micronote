@@ -28,3 +28,7 @@ Rails.application.config.assets.precompile += %w(
   account_activation.coffee
   password_reset.coffee
   )
+
+Rails.application.config.assets.precompile += %w(
+  projects/edit.js
+)

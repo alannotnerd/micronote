@@ -25,4 +25,10 @@ module ApplicationHelper
     user == current_user
   end
 
+  def current_access_level(project)
+    course = Course.find project.pushed_by
+    gr = GroupRelationship.find_by group_id: course.group, user_id: current_user
+    return gr.level
+  end
+
 end

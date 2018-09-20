@@ -1,3 +1,5 @@
+# #GroupController
+# Deal all request to [Group] model.
 class GroupsController < ApplicationController
   def new
     @group = Group.new
@@ -26,7 +28,7 @@ class GroupsController < ApplicationController
   def index
     if current_user.nil?
       redirect_to login_path
-      flash[:info] = "Please log in first"
+      flash[:info] = 'Please log in first'
     end
     @user ||= User.find session[:user_id]
 
@@ -38,40 +40,38 @@ class GroupsController < ApplicationController
     @group = Group.find params[:id]
     token = Base64.encode64("#{@group.id}?#{now.to_i}").chomp
     @group.remember_token token
-    # todo: expire token
     render :json => {id: @group.id, token: token, datetime: now}
   end
 
   def proc_invitation
     now = Time.now.to_i
     token = params[:token]
-    _s = Base64.decode64(token)
-    group_id, timestamp = _s.split '?'
+    s = Base64.decode64(token)
+    group_id, timestamp = s.split '?'
     group = Group.find group_id
     if group.invitation_token != token || now - timestamp.to_i >= 7200
-      flash[:danger] = "Invalid Invitation Token Or Token expired"
+      flash[:danger] = 'Invalid Invitation Token Or Token expired'
       redirect_to root_path
     else
       unless group.join(current_user)
         flash[:danger] = "You're already in group"
         redirect_to groups_path
-      else
-        flash[:info] = "Success! waiting for importing projects"
-        user_id = current_user.id
-        _cr = Course.where(group_id: group_id)
-        _cr.each do |c|
-          Project.import c.project_id, user_id, Course.find_by(group_id: group.id, project_id: c.project_id).id
-        end
-        redirect_to groups_path
+        return
       end
+      flash[:info] = 'Success! waiting for importing projects'
+      redirect_to groups_path
     end
   end
 
   def rm_user
-    # FIXME use group.rm_user
     @gr = GroupRelationship.find params[:id]
-    @gr.destroy
-    flash[:info] = "user #{@gr.user} removed."
+    if @gr.group.owned_by?(current_user) and @gr.group.user?(@gr.user)
+      @gr.group.rm_user @gr.user
+      flash[:info] = "user #{@gr.user.name} removed."
+    else
+      flash[:danger] = "Make sure you're administrator and User is in group"
+    end
+
     redirect_to group_path(@gr.group)
   end
 

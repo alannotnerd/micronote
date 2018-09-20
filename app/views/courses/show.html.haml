@@ -7,6 +7,5 @@
       .project-container
         =stylesheet_link_tag 'projects', media: 'all'
         %ul{style: "list-style:none;"}
-          -@projects.each do |project|
-            - @project=project
-            =render "/shared/project_comb"
+          -@course.projects.each do |project|
+            =render "/shared/project_comb", locals: {project: project}

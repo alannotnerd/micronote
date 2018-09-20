@@ -6,7 +6,7 @@
         =gravatar_for group_relationship.user, size: 20
         %i
           #{group_relationship.user.name}
-      -if group_relationship.group.isOwnedBy(current_user) && group_relationship.user != current_user
+      -if group_relationship.group.owned_by?(current_user) && group_relationship.user != current_user
         =link_to "delete", "/group_relationships/#{group_relationship.id}", method: :delete, data: { confirm: "Are you sure?"}, style: "float: right; margin-top:-5px; z-index:51", class: "btn btn-primary btn-sm"
     -# .panel.panel-body
       -# =group_relationship.user.name

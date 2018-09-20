@@ -2,7 +2,7 @@
   .panel.panel-default
     .panel.panel-heading
       %span
-        #{User.find(@project.user_id).name}
+        #{locals[:project].user.name}
     .panel.panel-body.no-margin
       %ul.no-padding
-        =render @project
+        =render locals[:project]

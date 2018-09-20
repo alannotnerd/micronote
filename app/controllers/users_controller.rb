@@ -37,7 +37,6 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_param)
       flash[:success] = "Successful update!"
       redirect_to @user
-      #do somethins
     else
       render :edit
     end
@@ -51,29 +50,29 @@ class UsersController < ApplicationController
 
   private
 
-    def user_param
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
-    end
+  def user_param
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
 
-    def logged_in_user
-      unless logged_in?
-        flash[:danger] = "Please log in."
-        store_location
-        redirect_to login_url
-      end
+  def logged_in_user
+    unless logged_in?
+      flash[:danger] = "Please log in."
+      store_location
+      redirect_to login_url
     end
-    
-    def is_current_user?
-      current_user? @user
-    end
+  end
 
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_to root_url unless is_current_user?
-    end
+  def is_current_user?
+    current_user? @user
+  end
 
-    def admin_user
-      redirect_to root_url unless current_user.admin?
-    end
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to root_url unless is_current_user?
+  end
+
+  def admin_user
+    redirect_to root_url unless current_user.admin?
+  end
 
 end

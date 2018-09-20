@@ -36,8 +36,8 @@ guard :minitest, spring: true, all_on_start: false do
 end
 
 # Returns the integration tests corresponding to the given resource.
-def integration_tests(resource = :all)
-  if resource == :all
+def integration_tests(resource = :users)
+  if resource == :users
     Dir["test/integration/*"]
   else
     Dir["test/integration/#{resource}_*.rb"]

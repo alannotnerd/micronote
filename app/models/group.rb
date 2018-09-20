@@ -10,48 +10,53 @@ class Group < ActiveRecord::Base
     GroupRelationship.create(group_id: id, user_id: user_id, level: 1)
   end
 
-  def isOwnedBy(user)
+  def owned_by?(user)
     user_id == user.id
   end
 
-  def all
-    __gr = GroupRelationship.where group_id: id
-    users = []
-    __gr.each do |g|
-      _user = User.find g.user_id
-      users.append _user
-    end
-    return users
-  end
-
   def clean_up
-    self.courses.each do |c|
-      c.destroy
-    end
-    self.group_relationships.each do |gr|
-      gr.destroy
-    end
+    courses.each(&:destroy)
+    group_relationships.each(&:destroy)
   end
 
-  def add_course project_name
-    # TODO
+  def add_course project
+    Course.create project_id: project.id, group_id: id, begin_date: Time.zone.now
   end
 
   def rm_user(user)
-    # TODO
+    gr = group_relationships.find_by user_id: user
+    return false if gr.nil?
+
+    gr.destroy
+    true
+
+  end
+
+  def users
+    res = []
+    group_relationships.each do |gr|
+      res.append(gr.user) unless gr.level == 1
+    end
+    res
   end
 
   def join(user)
     gr = GroupRelationship.new user_id: user.id, group_id: id
-    if GroupRelationship.find_by(user_id:user.id, group_id: id).nil?
-      gr.save
-      return true
-    else
-      return false
+    return false unless
+        GroupRelationship.find_by(user_id:user.id, group_id: id).nil?
+
+    gr.save
+    courses.each do |c|
+      Project.import c.project.id, gr.user.id, c.id
     end
+    true
   end
 
-  def remember_token token
+  def user?(user)
+    !group_relationships.find_by(user_id: user).nil?
+  end
+
+  def remember_token(token)
     update_attribute :invitation_token, token
   end
 end

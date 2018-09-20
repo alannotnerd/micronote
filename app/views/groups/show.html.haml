@@ -5,7 +5,7 @@
     %ul.nav.bs-sidenav
   
   .col-md-9.container
-    - if @group.isOwnedBy current_user
+    - if @group.owned_by? current_user
       %h2#invitation
         Invitation
       #invitation_pene
@@ -33,7 +33,7 @@
             =render @group.group_relationships
         .tab-pane#project
           %ul.projects
-            - if @group.isOwnedBy(current_user)
+            - if @group.owned_by?(current_user)
               #create-course
                 %a.btn.btn-primary{href: new_course_path + "?group_id=#{@group.id}"}
                   Create New Course

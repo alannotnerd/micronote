@@ -2,11 +2,14 @@
   %p
     %strong
       #{Project.find(course.project_id).name}
-  - if Group.find(course.group_id).isOwnedBy(current_user)
+  - if Group.find(course.group_id).owned_by?(current_user)
     .row.border-box.vcenter
       = link_to Project.find(course.project_id).name, "/courses/#{course.id}"
       .button-group.right
-        = link_to "close", "/courses/#{course.id}/close", class: "btn btn-default btn-sm", data: {confirm: "Are you Sure?"}
+        -if course.opened
+          = link_to "close", "/courses/#{course.id}/close", class: "btn btn-default btn-sm", data: {confirm: "Are you Sure?"}
+        -else
+          = link_to "reopen", "/courses/#{course.id}/close", class: "btn btn-default btn-sm", data: {confirm: "Are you Sure?"}
         = link_to "delete", course_path(course), method: :delete, class: "btn btn-primary btn-sm", data: {confirm: "Are you Sure?"}
   - else
     =render Project.find_by(user_id: current_user.id, pushed_by: course.id)
