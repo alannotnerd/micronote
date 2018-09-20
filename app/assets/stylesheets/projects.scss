@@ -7,6 +7,17 @@
   // min-height: 768px;
 }
 
+.abs-aside-left{
+  position: fixed;
+  top: 15%;
+  left: 5%;
+  border-left: #2a6496 2px solid;
+  border-top: #2a6496 2px solid;
+  ul{
+    min-width: 200px;
+  }
+}
+
 .full-screen{
   // position: abusolte;
   top: 0;

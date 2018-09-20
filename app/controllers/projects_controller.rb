@@ -43,18 +43,18 @@ class ProjectsController < ApplicationController
   end
 
   private
-    def project_params
-      params.require(:project).permit(:name, :user_id)
-    end
 
-    def origin_user(project)
-      if project.pushed_by.nil?
-        return User.find project.user_id
-      else
-        # todo
-        course_id = project.pushed_by
-        origin_project = Project.find Course.find(course_id).project_id
-        return User.find origin_project.user_id
-      end                               
+  def project_params
+    params.require(:project).permit(:name, :user_id)
+  end
+
+  def origin_user(project)
+    if project.pushed_by.nil?
+      User.find project.user_id
+    else
+      course_id = project.pushed_by
+      origin_project = Project.find Course.find(course_id).project_id
+      User.find origin_project.user_id
     end
+  end
 end

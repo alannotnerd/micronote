@@ -18,3 +18,10 @@ three:
   name: sample2
   user_id: 1
   pushed_by: 2
+
+# another project belongs to users[:two]
+four:
+  id: 4
+  name: sample3
+  user_id: 2
+  pushed_by: nil

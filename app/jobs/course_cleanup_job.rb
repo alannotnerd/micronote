@@ -3,7 +3,7 @@ class CourseCleanupJob < ActiveJob::Base
 
   def perform(course)
     # Do something later
-    users = Group.find(course.group_id).all
+    users = Group.find(course.group_id).users
     users.each do |u|
       p = Project.find_by(user_id: u, pushed_by: course)
       p.destroy unless p.nil?

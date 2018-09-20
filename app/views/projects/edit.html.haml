@@ -1,3 +1,5 @@
 - provide :title, @project.name
+-#=javascript_include_tag "project/edit", 'data-turbolinks-track' => true
 -# = render cells(@project)
+-#%div#tree.abs-aside-left
 %iframe.full#pif{name: "pif", src: edit_url(@project), frameborder: "no", onload: "removeHeader(this);"}

@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require custom
+ *= require bootstrap-treeview.min
  *= require_self
  */
 html, body{
