@@ -31,4 +31,5 @@ Rails.application.config.assets.precompile += %w(
 
 Rails.application.config.assets.precompile += %w(
   projects/edit.js
+  courses/new.js
 )
