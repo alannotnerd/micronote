@@ -17,3 +17,12 @@ function load_token(e){
     $("#token").val(data.token);
   })  
 }
+
+function closeCourse(btn){
+  $.ajax({
+    url: "/courses/" + $(btn).attr("data-course") +"/close",
+    type: "GET"
+  }).done(function (data) {
+    location.reload()
+  })
+}

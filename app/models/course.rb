@@ -39,5 +39,6 @@ class Course < ActiveRecord::Base
       update_attribute :begin_date, Time.zone.now
       update_attribute :expire_date, nil
     end
+    return {state: opened, id: id}
   end
 end

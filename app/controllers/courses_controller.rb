@@ -49,10 +49,10 @@ class CoursesController < ApplicationController
 
   def close
     @course = Course.find params[:id].to_i
-    @course.toggle_close
+    res = @course.toggle_close
     # cause open state has changed.
     flash[:info] = "Course #{@course.origin_project.name} #{@course.opened? ? 'opened':'closed'}!"
-    redirect_to group_path(@course.group)
+    render json: res
   end
 
   def destroy
@@ -61,8 +61,10 @@ class CoursesController < ApplicationController
     flash[:info] = 'Course destroy process invoking'
     redirect_to group_path(@course.group)
   end
+
   private
-    def course_params
-      params.require(:course).permit(:project_name, :group_id)
-    end
+
+  def course_params
+    params.require(:course).permit(:project_name, :group_id)
+  end
 end
