@@ -31,7 +31,9 @@ end
 group = Group.create(name: "Sample Group", user_id: user.id)
 group2 = Group.create(name: "Sample Group2", user_id: 3)
 
-group.join(User.find 2)
+User.all.each do |user|
+  group.join user
+end
 # GroupRelationship.create(group_id: group.id, user_id: user.id, level: 0)
 
 

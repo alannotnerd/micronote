@@ -20,6 +20,9 @@ gem 'haml-rails'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 
+# gem 'bootstrap', '4.1.1'
+# gem 'material-sass', '4.1.1'
+# gem 'material_icons'
 gem 'bootstrap-sass', "3.2.0.0"
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -40,6 +43,7 @@ gem "codemirror-rails"
 
 gem "unicorn"
 
+gem "sidekiq"
 # Use Unicorn as the app server
 # gem 'unicorn'
 # Use Capistrano for deployment

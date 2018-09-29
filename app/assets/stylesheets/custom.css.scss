@@ -2,6 +2,8 @@
 @import "bootstrap";
 /* universe */
 $gray-medium-light: #eaeaea;
+$gray-light: #acacac;
+
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -132,7 +134,7 @@ input {
 .field_with_errors {
   @extend .has-error;
   .form-control {
-    color: $state-danger-text;
+    color: #ce8483;
   }
 }
 
@@ -148,4 +150,10 @@ input {
 #session_remember_me {
   width: auto;
   margin-left: 0;
+}
+
+.abs-right-bottom-btn{
+  position: fixed;
+  bottom: 100px;
+  right: 15%;
 }

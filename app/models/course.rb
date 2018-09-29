@@ -27,7 +27,7 @@ class Course < ActiveRecord::Base
 
   def push_project
     # TODO: re-push
-    PushProjectJob.perform_now self
+    PushProjectJob.perform_later self
   end
 
   def toggle_close

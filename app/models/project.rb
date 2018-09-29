@@ -23,6 +23,17 @@ class Project < ActiveRecord::Base
     puts "#{id} Not Fount"
   end
 
+  def save_asset(upload)
+    file_name = upload.original_filename unless upload.original_filename.empty?
+    file = upload.read
+    Datafolder::Env.upload(
+      "#{user_id}/#{id}/asset/#{file_name}",
+      file_name,
+      Base64.encode64(file)
+    )
+    return {name: file_name, content: Base64.encode64(file)}
+  end
+
   def self.clean
     all = Project.all
     all.each do |p|
@@ -44,12 +55,12 @@ class Project < ActiveRecord::Base
     true
   end
 
-  def isOpen?
-    if pushed_by.nil?
+  def editable?(user)
+    if pushed_by.nil? and user.id == user_id
       true
     else
       course = Course.find pushed_by
-      course.opened
+      course.level_of(user) <= 5 or (user == current_user and course.opened?)
     end
   end
 

@@ -1,5 +1,5 @@
 - provide :title, @project.name
-- if @project.isOpen? or current_access_level(@project) < 5
+- if @project.editable? current_user
   .row
     %a.btn.btn-primary{href: edit_project_path(@project)}
       Edit
