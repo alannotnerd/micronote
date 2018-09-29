@@ -41,6 +41,8 @@ class Group < ActiveRecord::Base
   end
 
   def join(user)
+    return false if owner == user
+
     gr = GroupRelationship.new user_id: user.id, group_id: id
     return false unless
         GroupRelationship.find_by(user_id:user.id, group_id: id).nil?

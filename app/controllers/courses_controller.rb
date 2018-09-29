@@ -31,6 +31,7 @@ class CoursesController < ApplicationController
     if group.add_course(project)
       flash[:info] = 'Auto import working background. This may cost several minutes.'
       redirect_to group
+      return
     else
       flash[:error] = 'Course Has exist'
       render group
@@ -49,7 +50,8 @@ class CoursesController < ApplicationController
   def close
     @course = Course.find params[:id].to_i
     @course.toggle_close
-    flash[:info] = "Course #{@course.origin_project.name} closed!"
+    # cause open state has changed.
+    flash[:info] = "Course #{@course.origin_project.name} #{@course.opened? ? 'opened':'closed'}!"
     redirect_to group_path(@course.group)
   end
 

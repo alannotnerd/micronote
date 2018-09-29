@@ -26,6 +26,7 @@ module Sample
     config.app_generators.javascript_engine :coffeescript
     config.assets.enabled = true
     config.force_ssl = false
+    config.active_job.queue_adapter = :sidekiq
     def jupyter_path
       raise "cannot access $RAILS_DOMAIN" if ENV["RAILS_DOMAIN"].nil? || ENV["RAILS_DOMAIN"].empty?
       "#{ENV["RAILS_DOMAIN"]}/notebooks"

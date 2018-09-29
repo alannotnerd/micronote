@@ -26,19 +26,20 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def upload
+    @project = Project.find params[:id]
+    res = @project.save_asset(params[:upload])
+    render json: res
+  end
+
   def edit
     @project = Project.find(params[:id])
-    if not @project.isOpen?
-      flash[:danger] = "Sorry, project is closed."
+    if not @project.editable?(current_user)
+      flash[:danger] = "Sorry, project is closed or you don't have access permission."
       redirect_to root_url
     elsif current_user.nil?
       flash[:error] = "Please Log in first"
       redirect_to root_url
-    elsif @project.user_id != current_user.id
-      if @project.pushed_by.nil? || Course.find(@project.pushed_by).level_of(current_user) > 5
-        flash["error"] = "Make sure have access permission"
-        redirect_to root_url
-      end
     end
   end
 

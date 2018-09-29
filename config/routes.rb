@@ -21,4 +21,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   get '/courses/:id/close' => "courses#close"
   delete '/group_relationships/:id' => 'groups#rm_user'
+
+  #upload assets
+  post '/projects/:id/upload' => 'projects#upload'
 end
