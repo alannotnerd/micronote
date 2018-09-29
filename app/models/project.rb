@@ -60,7 +60,7 @@ class Project < ActiveRecord::Base
       true
     else
       course = Course.find pushed_by
-      course.level_of(user) <= 5 or (user == current_user and course.opened?)
+      course.level_of(user) <= 5 or course.opened?
     end
   end
 
