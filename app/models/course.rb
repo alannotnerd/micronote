@@ -2,7 +2,7 @@ class Course < ActiveRecord::Base
   before_destroy :clean_up
   belongs_to :group
   belongs_to :project
-  after_create :push_project
+  after_commit :push_project, on: :create
   has_many :projects, foreign_key: :pushed_by
   def level_of(user)
     # group = Group.find group_id
@@ -13,21 +13,13 @@ class Course < ActiveRecord::Base
     CourseCleanupJob.perform_now self
   end
 
-  # def projects
-  #   Project.where pushed_by: self
-  # end
-  #
-  # def group
-  #   Group.find group_id
-  # end
-
   def origin_project
     Project.find project_id
   end
 
   def push_project
     # TODO: re-push
-    PushProjectJob.perform_later self
+    PushProjectJob.perform_later id
   end
 
   def toggle_close

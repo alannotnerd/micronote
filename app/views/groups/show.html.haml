@@ -38,4 +38,4 @@
               #create-course
                 %a.btn.btn-primary{href: new_course_path + "?group_id=#{@group.id}"}
                   Create New Course
-            =render @group.courses      
+            =render @group.courses.order(:created_at)      
