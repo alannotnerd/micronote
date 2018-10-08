@@ -6,7 +6,8 @@ class Course < ActiveRecord::Base
   has_many :projects, foreign_key: :pushed_by
   def level_of(user)
     # group = Group.find group_id
-    GroupRelationship.find_by(group_id: group_id, user_id: user.id).level
+    gr = GroupRelationship.find_by(group_id: group_id, user_id: user.id)
+    gr.nil?? -1 : gr.level
   end
 
   def clean_up
@@ -19,7 +20,7 @@ class Course < ActiveRecord::Base
 
   def push_project
     # TODO: re-push
-    PushProjectJob.perform_later id
+    PushProjectJob.perform_later self unless _readonly?
   end
 
   def toggle_close

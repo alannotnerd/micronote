@@ -28,8 +28,12 @@ class CoursesController < ApplicationController
       redirect_to new_course_path+"?group_id=#{group.id}"
       return
     end
-    if group.add_course(project)
-      flash[:info] = 'Auto import working background. This may cost several minutes.'
+    if group.add_course(project, params[:_readonly])
+      if params[:_readonly]
+        flash[:info] = 'Project shared'
+      elsif
+        flash[:info] = 'Auto import working background. This may cost several minutes.'
+      end
       redirect_to group
       return
     else

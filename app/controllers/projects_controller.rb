@@ -7,11 +7,9 @@ class ProjectsController < ApplicationController
     if current_user.nil?
       flash["error"] = "Please Log in first"
       redirect_to root_url
-    elsif @project.user_id != current_user.id
-      if @project.pushed_by.nil? || Course.find(@project.pushed_by).level_of(current_user) > 5
-        flash["error"] = "Make sure have access permission"
-        redirect_to root_url
-      end
+    elsif !@project.accessible? current_user
+      flash["error"] = "Make sure have access permission"
+      redirect_to root_url
     end
   end
 

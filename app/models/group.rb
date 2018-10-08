@@ -19,8 +19,8 @@ class Group < ActiveRecord::Base
     group_relationships.each(&:destroy)
   end
 
-  def add_course project
-    Course.create project_id: project.id, group_id: id, begin_date: Time.zone.now
+  def add_course project, _readonly=false
+    Course.create project_id: project.id, group_id: id, begin_date: Time.zone.now, _readonly: _readonly
   end
 
   def rm_user(user)

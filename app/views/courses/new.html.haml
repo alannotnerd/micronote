@@ -13,5 +13,10 @@
           %input.form-control#ajax-p-name{name: "project_name"}
           =hidden_field_tag "group_id", @group.id
           =hidden_field_tag "user_id", current_user.id
+        %br
+        .form-group
+          %label#project_readonly.m-label
+            ReadOnly
+          %input.form-control{type: "checkbox", name: "_readonly"}
         .row{style:"text-align: center; border-top:1px solid #e3e3e3; margin-top:20px;"}
           %button.btn.btn-default{class: "btn btn-primary", action: courses_path}Create

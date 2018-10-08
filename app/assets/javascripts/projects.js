@@ -68,8 +68,10 @@ const removeHeader = function(obj){
   var b = function (){
     var container = $("#root");
     if (container.hasClass("full-screen")){
-      $("header").show();
-      $("footer").show();
+      // $("header").show();
+      // $("footer").show();
+      // $("#root div").show();
+      $("header, footer, #root div").show();
       $("body").removeClass("full-screen");
       container.removeClass("full-screen");
       frame.removeClass("full-screen");
@@ -77,8 +79,10 @@ const removeHeader = function(obj){
       frame.css("height", "768px");
 
     }else{
-      $("header").hide();
-      $("footer").hide();
+      // $("header").hide();
+      // $("footer").hide();
+      // $("#root div").hide();
+      $("header, footer, #root div").hide();
       frame.css("height", "100%");
       frame.addClass("full-screen");
       container.addClass("full-screen");

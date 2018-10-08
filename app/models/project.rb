@@ -56,12 +56,11 @@ class Project < ActiveRecord::Base
   end
 
   def editable?(user)
-    if pushed_by.nil? and user.id == user_id
-      true
-    else
-      course = Course.find pushed_by
-      course.level_of(user) <= 5 or course.opened?
-    end
+    master?(user) || admin?(user) || Course.find_by(pushed_by).opened?
+  end
+
+  def accessible?(user)
+    owner?(user) or share_to?(user) or admin?(user)
   end
 
   def nbpath
@@ -80,6 +79,28 @@ class Project < ActiveRecord::Base
 
   def unique?
     !pushed_by.nil? || Project.find_by(name: name, user_id: user_id).nil?
+  end
+
+  # FIXME: need test
+  def share_to?(user)
+    return false if not pushed_by.nil?
+    !Course.where(project_id: id, _readonly: true).joins(
+        "LEFT OUTER JOIN group_relationships AS gr ON gr.group_id = courses.group_id"
+    ).where("gr.user_id = ?", user.id).nil?
+  end
+
+  def admin?(user)
+    return false if pushed_by.nil?
+    course = Course.find pushed_by
+    (0..5).include? course.level_of(user)
+  end
+
+  def owner?(user)
+    user_id == user.id
+  end
+
+  def master?(user)
+    pushed_by.nil? and owner?(user)
   end
 
   def replace_last(path, name)
